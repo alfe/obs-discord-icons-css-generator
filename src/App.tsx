@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, List, Paper, styled, TextField } from '@mui/material'
 import './App.css'
-import DiscordIconPreview from './component/DiscordIconPreview'
+import DiscordIconPreview, { CustomStyle } from './component/DiscordIconPreview'
 import SelectorListItem from './component/SelectorListItem'
 
 const toKebabCase = (string: string) => string
@@ -10,9 +10,9 @@ const toKebabCase = (string: string) => string
   .toLowerCase();
 
 // #app-mount 
-const getCssText = (styles) => Object
-.keys(styles)
-.map(className => (Object.keys(styles[className]).length === 0)
+const getCssText = (styles: CustomStyle) =>
+(Object.keys(styles) as (keyof CustomStyle)[])
+.map((className) => (Object.keys(styles[className]).length === 0)
   ? ''
   : `
 #app-mount .${toKebabCase(className)} {${Object
@@ -48,7 +48,7 @@ const getCssText = (styles) => Object
 `;
 
 function App() {
-  const [styles, setStyles] = React.useState({
+  const [styles, setStyles] = React.useState<CustomStyle>({
     voiceContainer: {},
     voiceStates: {},
     voiceState: {},

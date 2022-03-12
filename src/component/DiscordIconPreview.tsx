@@ -3,7 +3,7 @@ import './Discord.css'
 
 const ALFE_IMG_URL = "https://cdn.discordapp.com/avatars/739080466790875187/7f5f725b7de03aedfde45417e164a927.jpg";
 
-type CustomStyle = {
+export type CustomStyle = {
   voiceContainer: { [key: string]: string | number },
   voiceStates: { [key: string]: string | number };
   voiceState: { [key: string]: string | number };
@@ -15,7 +15,6 @@ type DiscordIconPreviewProps = {
   styles: CustomStyle,
 }
 const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
-  console.log(styles)
   return (
     <div id="app-mount">
       <div style={{
