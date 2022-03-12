@@ -1,51 +1,12 @@
 import React from 'react'
-import { Grid, List, Paper, styled, TextField } from '@mui/material'
-import './App.css'
+import Grid from '@mui/material/Grid'
+import List from '@mui/material/List'
+import TextField from '@mui/material/TextField'
+import { getCssText } from './lib/cssText'
 import DiscordIconPreview, { CustomStyle } from './component/DiscordIconPreview'
 import SelectorListItem from './component/SelectorListItem'
-
-const toKebabCase = (string: string) => string
-  .replace(/([a-z])([A-Z])/g, "$1-$2")
-  .replace(/[\s_]+/g, '-')
-  .toLowerCase();
-
-// #app-mount 
-const getCssText = (styles: CustomStyle) =>
-(Object.keys(styles) as (keyof CustomStyle)[])
-.map((className) => (Object.keys(styles[className]).length === 0)
-  ? ''
-  : `
-#app-mount .${toKebabCase(className)} {${Object
-  .keys(styles[className])
-  .map(k => `
-  ${toKebabCase(k)}: ${styles[className][k]};`)
-  .join(` `)}
-}`)
-.join(` `).trim() + `
-
-@keyframes speak-light {
-  0% {
-    box-shadow: 0 0 4px #ffffff;
-  }
-  50% {
-    box-shadow: 0 0 16px #ffffff;
-  }
-  100% {
-    box-shadow: 0 0 4px #ffffff;
-  }
-}
-@keyframes speak-jump {
-  0% {
-    bottom: 0px;
-  }
-  50% {
-    bottom: 10px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-`;
+import InputArea from './component/InputArea'
+import './App.css'
 
 function App() {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -66,7 +27,7 @@ function App() {
       <h1>OBSのDiscordアイコンの見た目変更ジェネレータ</h1>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-          <Item>
+          <InputArea>
             <List>
               <SelectorListItem
                 title="アイコンの並び"
@@ -249,7 +210,6 @@ function App() {
                         });
                         break;
                     }
-                    return {}
                   }}
                   options={[
                     { value: 'normal', label: '標準' },
@@ -279,37 +239,27 @@ function App() {
                         });
                         break;
                     }
-                    return {}
                   }}
                   options={[
                     { value: 'exist', label: 'あり' },
                     { value: 'hidden', label: 'なし' },
                   ]} />
             </List>
-          </Item>
+          </InputArea>
         </Grid>
         <Grid item xs={6} sx={{ overflow: 'hidden' }}>
           <DiscordIconPreview styles={styles} />
         </Grid>
         <Grid item xs={12}>
-          <Item>
+          <InputArea>
             <TextField
               fullWidth
               multiline
               value={getCssText(styles)} />
-          </Item>
+          </InputArea>
         </Grid>
       </Grid>
     </div >
   );
 };
-
 export default App
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));

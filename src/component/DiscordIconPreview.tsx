@@ -24,7 +24,7 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
         <div className="voice-container" style={styles.voiceContainer} data-reactid=".0.0">
           <ul className="voice-states" style={styles.voiceStates} data-reactid=".0.0.0">
             <User userId="739080466790875187" styles={styles} userName="あるふ（話し中）" speaking />
-            <User userId="789526218957389834" styles={styles} userName="あるふ" />
+            <User userId="739080466790875187" styles={styles} userName="あるふ" />
             <User userId="739080466790875187" styles={styles} userName="あるふ（とてもお話し中）" speaking />
             <User userId="739080466790875187" styles={styles} userName="あるふ" />
             <User userId="739080466790875187" styles={styles} userName="あるふ" />
