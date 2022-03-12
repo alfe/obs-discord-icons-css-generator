@@ -1,0 +1,23 @@
+
+@keyframes speak-light {
+	0% {
+		box-shadow: 0 0 4px #ffffff;
+	}
+	50% {
+		box-shadow: 0 0 16px #ffffff;
+	}
+	100% {
+		box-shadow: 0 0 4px #ffffff;
+	}
+}
+@keyframes speak-jump {
+	0% {
+		bottom: 0px;
+	}
+	50% {
+		bottom: 10px;
+	}
+	100% {
+		bottom: 0px;
+	}
+}
