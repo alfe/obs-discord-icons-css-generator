@@ -4,12 +4,12 @@ import './Discord.css'
 const ALFE_IMG_URL = "https://cdn.discordapp.com/avatars/739080466790875187/7f5f725b7de03aedfde45417e164a927.jpg";
 
 export type CustomStyle = {
-  voiceContainer: { [key: string]: string | number },
-  voiceStates: { [key: string]: string | number };
-  voiceState: { [key: string]: string | number };
-  avatar: { [key: string]: string | number };
-  speaking: { [key: string]: string | number };
-  name: { [key: string]: string | number };
+  voiceContainer: { [key: string]: string },
+  voiceStates: { [key: string]: string };
+  voiceState: { [key: string]: string };
+  avatar: { [key: string]: string };
+  speaking: { [key: string]: string };
+  name: { [key: string]: string };
 }
 type DiscordIconPreviewProps = {
   styles: CustomStyle,
@@ -26,9 +26,9 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
             <User userId="739080466790875187" styles={styles} userName="あるふ（話し中）" speaking />
             <User userId="739080466790875187" styles={styles} userName="あるふ" />
             <User userId="739080466790875187" styles={styles} userName="あるふ（とてもお話し中）" speaking />
-            <User userId="739080466790875187" styles={styles} userName="あるふ" />
-            <User userId="739080466790875187" styles={styles} userName="あるふ" />
-            <User userId="739080466790875187" styles={styles} userName="あるふ" />
+            <User userId="739080466790875187" styles={styles} userName="alfe" />
+            <User userId="739080466790875187" styles={styles} userName="ALFE" />
+            <User userId="739080466790875187" styles={styles} userName="アルフ" />
           </ul>
         </div>
       </div>

@@ -1,13 +1,16 @@
 import React from 'react'
-import { FormLabel, ListItem, ToggleButton, ToggleButtonGroup } from '@mui/material'
+import FormLabel from '@mui/material/FormLabel';
+import ListItem from '@mui/material/ListItem';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 type Option = { label: string; value: string };
-type SelectorListItemPorps = {
+type SelectorListItemProps = {
   title: string;
   options: Option[];
   onChange: (value: string) => void;
 };
-const SelectorListItem = ({ title, options, onChange }: SelectorListItemPorps) => {
+const SelectorListItem = ({ title, options, onChange }: SelectorListItemProps) => {
   const [value, setValue] = React.useState(options[0].value || '');
   const handleChange = (_: any, val: string) => {
     setValue(val);
