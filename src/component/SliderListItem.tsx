@@ -4,7 +4,7 @@ import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import Slider from '@mui/material/Slider';
 
-type SliderListItemProps = {
+export type SliderListItemProps = {
   title: string;
   onChange: (value: string) => void;
 };

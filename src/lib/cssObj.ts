@@ -8,19 +8,24 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
+  const { display, ...voiceStates } = styles.voiceStates;
+  const { display: _, flexDirection, ...voiceState } = styles.voiceState;
+  const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name;
   switch (val) {
     case 'horizontal':
       setStyles({
         ...styles,
         voiceStates: {
+          ...voiceStates,
           display: 'flex',
         },
         voiceState: {
-          ...styles.voiceState,
+          ...voiceState,
           display: 'flex',
           flexDirection: 'column',
         },
         name: {
+          ...name,
           maxWidth: styles?.avatar?.width || '64px',
           boxSizing: 'border-box',
           textOverflow: 'clip',
@@ -34,22 +39,9 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
     default:
       setStyles({
         ...styles,
-        voiceStates: {
-          display: 'block',
-        },
-        voiceState: {
-          ...styles.voiceState,
-          display: 'block',
-          flexDirection: 'unset',
-        },
-        name: {
-          maxWidth: styles?.avatar?.width || '100%',
-          boxSizing: 'none',
-          textOverflow: 'clip',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          display: 'initial',
-        }
+        voiceStates,
+        voiceState,
+        name,
       });
       break;
   }
@@ -71,19 +63,22 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの大きさ
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
+  const { filter: _, ...avatar } = styles.avatar;
+  const { position, animation, filter, borderColor, ...speaking } = styles.speaking;
   switch (val) {
     case 'light':
       setStyles({
         ...styles,
         avatar: {
-          ...styles.avatar,
+          ...avatar,
           filter: 'brightness(70%)',
         },
         speaking: {
+          ...speaking,
           position: 'relative',
           animation: '300ms infinite alternate speak-light',
           filter: 'brightness(100%)',
-          borderColor: 'rgba(255,255,255,.5)', // !important
+          borderColor: 'rgba(255,255,255,.75)', // !important
         }
       });
       break;
@@ -91,10 +86,11 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
       setStyles({
         ...styles,
         avatar: {
-          ...styles.avatar,
+          ...avatar,
           filter: 'brightness(70%)',
         },
         speaking: {
+          ...speaking,
           position: 'relative',
           animation: '300ms infinite alternate ease-in-out speak-jump',
           filter: 'brightness(100%)',
@@ -105,16 +101,8 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
     default:
       setStyles({
         ...styles,
-        avatar: {
-          ...styles.avatar,
-          filter: 'none',
-        },
-        speaking: {
-          position: 'initial',
-          animation: 'none',
-          filter: 'none',
-          borderColor: '#43b581', // !important
-        }
+        avatar,
+        speaking,
       });
       break;
   }
@@ -181,21 +169,19 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前
 const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
+  const { visibility, ...name } = styles.name;
   switch (val) {
     case 'exist':
       setStyles({
         ...styles,
-        name: {
-          ...styles.name,
-          visibility: 'visible',
-        },
+        name,
       });
       break;
     default:
       setStyles({
         ...styles,
         name: {
-          ...styles.name,
+          ...name,
           visibility: 'hidden',
         },
       });
@@ -205,21 +191,19 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の位置（上下）
 const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
+  const { position, top, ...name } = styles.name;
   switch (val) {
     case '0px':
-      const { position, top, ...name } = styles.name;
       setStyles({
         ...styles,
-        name: {
-          ...name,
-        },
+        name,
       });
       break;
     default:
       setStyles({
         ...styles,
         name: {
-          ...styles.name,
+          ...name,
           top: val,
           position: 'relative',
         },
@@ -252,7 +236,6 @@ const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
       break;
   }
 };
-
 export default {
   iconAlign,
   iconShape,

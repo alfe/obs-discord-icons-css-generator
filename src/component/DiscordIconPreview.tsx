@@ -11,7 +11,7 @@ export type CustomStyle = {
   speaking: { [key: string]: string };
   name: { [key: string]: string };
 }
-type DiscordIconPreviewProps = {
+export type DiscordIconPreviewProps = {
   styles: CustomStyle,
 }
 const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
