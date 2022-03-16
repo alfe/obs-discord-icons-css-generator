@@ -1,7 +1,7 @@
 import './animation.css'
 import './Discord.css'
-
-const ALFE_IMG_URL = "https://cdn.discordapp.com/avatars/739080466790875187/7f5f725b7de03aedfde45417e164a927.jpg";
+// https://discord.com/branding
+import DiscordIcon from './Discord-icon.svg'
 
 export type CustomStyle = {
   voiceContainer: { [key: string]: string },
@@ -23,12 +23,11 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
       }} data-reactid=".0">
         <div className="voice-container" style={styles.voiceContainer} data-reactid=".0.0">
           <ul className="voice-states" style={styles.voiceStates} data-reactid=".0.0.0">
-            <User userId="739080466790875187" styles={styles} userName="あるふ（話し中）" speaking />
-            <User userId="739080466790875187" styles={styles} userName="あるふ" />
-            <User userId="739080466790875187" styles={styles} userName="あるふ（とてもお話し中）" speaking />
-            <User userId="739080466790875187" styles={styles} userName="alfe" />
-            <User userId="739080466790875187" styles={styles} userName="ALFE" />
-            <User userId="739080466790875187" styles={styles} userName="アルフ" />
+            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName="ユーザ（話し中）" speaking />
+            <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName="ユーザ" />
+            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName="ユーザ（とてもお話し中）" speaking />
+            <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName="user" />
+            <User userId="739080466790875187" backgroundColor="#ED4245" styles={styles} userName="User" />
           </ul>
         </div>
       </div>
@@ -40,16 +39,17 @@ export default DiscordIconPreview;
 type UserProps = {
   userId: string;
   userName: string;
+  backgroundColor: string;
   speaking?: boolean;
   styles: CustomStyle;
 }
-const User = ({ userId, userName, speaking, styles }: UserProps) => {
+const User = ({ userId, userName, backgroundColor, speaking, styles }: UserProps) => {
   return (
     <li className="voice-state" style={styles.voiceState} data-reactid={`.0.0.0.$${userId}/=1$${userId}`}>
       <img
         className={`avatar ${speaking ? 'speaking' : ''}`}
-        src={ALFE_IMG_URL}
-        style={{ ...styles.avatar, ...(speaking ? styles.speaking : {}) }}
+        src={DiscordIcon}
+        style={{ ...styles.avatar, ...(speaking ? styles.speaking : {}), ...(!backgroundColor ? {} : { background: backgroundColor }) }}
         data-reactid={`.0.0.0.$${userId}/=1$${userId}.$=10`} />
       <div className="user" data-reactid={`.0.0.0.$${userId}/=1$${userId}.$/=11`}>
         <span

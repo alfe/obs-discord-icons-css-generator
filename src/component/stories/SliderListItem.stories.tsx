@@ -1,3 +1,4 @@
+import { Story } from "@storybook/react";
 import SliderListItem, { SliderListItemProps } from '../SliderListItem';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -7,7 +8,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args: SliderListItemProps) => <SliderListItem {...args} />;
+const Template: Story<SliderListItemProps> = (args) => <SliderListItem {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

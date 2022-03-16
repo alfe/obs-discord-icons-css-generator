@@ -1,11 +1,14 @@
 import CssMaker from './component/CssMaker'
 import './App.css'
+import { Box, Container, Typography } from '@mui/material';
 
 function App() {
   return (
     <div className='App-content'>
       <Header />
-      <CssMaker />
+      <Container>
+        <CssMaker />
+      </Container>
       <Footer />
     </div >
   );
@@ -14,7 +17,16 @@ export default App
 
 const Header = () => (
   <header>
-    <h1>OBSのDiscordアイコンの見た目変更ジェネレータ</h1>
+    <Box sx={{ m: 10, mb: 5 }}>
+      <Typography align="center" component="h1" variant="h3" paragraph>
+        OBSのDiscordアイコン外観変更ジェネレーター
+      </Typography>
+      <Container>
+        <Typography paragraph>
+          Discordで通話中のメンバーをOBS Studioに表示するときに、横並びにしたりアイコンを四角にしたりするためのカスタムCSSをつくるジェネレーター
+        </Typography>
+      </Container>
+    </Box>
   </header>
 );
 const Footer = () => (
