@@ -1,6 +1,7 @@
 import CssMaker from './component/CssMaker'
 import './App.css'
 import { Box, Container, Typography } from '@mui/material';
+import TutorialButton from './component/TutorialButton';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ const Header = () => (
         <Typography paragraph>
           Discordで通話中のメンバーをOBS Studioに表示するときに、横並びにしたりアイコンを四角にしたりするためのカスタムCSSをつくるジェネレーター
         </Typography>
+        <TutorialButton />
       </Container>
     </Box>
   </header>
