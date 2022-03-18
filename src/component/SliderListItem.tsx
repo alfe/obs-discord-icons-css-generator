@@ -6,22 +6,32 @@ import Slider from '@mui/material/Slider';
 
 export type SliderListItemProps = {
   title: string;
+  disabled?: boolean;
   onChange: (value: string) => void;
 };
-const SliderListItem = ({ title, onChange }: SliderListItemProps) => {
+const SliderListItem = ({ title, disabled, onChange }: SliderListItemProps) => {
   const [value, setValue] = React.useState(0);
+
+  React.useEffect(() => {
+    onChange(`${value}`);
+  }, [disabled])
+
   const handleChange = (_: any, val: number | number[], activeThumb: number) => {
     if (typeof val !== 'number') return;
     setValue(val);
-    onChange(`${val}px`);
+    onChange(`${val}`);
   };
   return (
-    <ListItem divider sx={{ display: 'flex', justifyContent: 'space-between' }}>
+    <ListItem
+      divider
+      sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}
+    >
       <FormLabel component="legend">{title}</FormLabel>
       <Box sx={{ width: 250 }}>
         <Slider
           defaultValue={0}
           value={value}
+          disabled={disabled}
           min={-150}
           max={150}
           valueLabelDisplay="auto"

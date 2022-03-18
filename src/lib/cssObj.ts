@@ -61,10 +61,10 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
   })
 };
 
-// アイコンの大きさ
+// 話すときの動き
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
   const { filter: _, ...avatar } = styles.avatar;
-  const { position, animation, filter, borderColor, ...speaking } = styles.speaking;
+  const { position, animation, animationDuration, filter, borderColor, ...speaking } = styles.speaking;
   switch (val) {
     case 'light':
       setStyles({
@@ -76,7 +76,7 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
         speaking: {
           ...speaking,
           position: 'relative',
-          animation: '300ms infinite alternate speak-light',
+          animation: '300ms infinite alternate ease-in-out speak-light',
           filter: 'brightness(100%)',
           borderColor: 'rgba(255,255,255,.75)', // !important
         }
@@ -107,6 +107,31 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
       break;
   }
 }
+
+// 動きの速さ
+const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
+  const { animationDuration, ...speaking } = styles.speaking;
+  switch (val) {
+    case '0':
+      setStyles({
+        ...styles,
+        speaking: {
+          ...speaking,
+          animationDuration: `300ms`,
+        },
+      });
+      break;
+    default:
+      setStyles({
+        ...styles,
+        speaking: {
+          ...speaking,
+          animationDuration: `${300 - Number(val)}ms`,
+        },
+      });
+      break;
+  }
+};
 
 // アイコンの大きさ
 const iconSize = ({ val, styles, setStyles }: StringValArg) => {
@@ -189,11 +214,43 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
   }
 };
 
+// 名前の見た目
+const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
+  const { backgroundColor, textShadow, ...name } = styles.name;
+  switch (val) {
+    case 'bordering':
+      setStyles({
+        ...styles,
+        name: {
+          ...name,
+          backgroundColor: 'transparent',
+          textShadow: '2px 2px 2px black, -2px -2px 2px black, 2px -2px 2px black, -2px 2px 2px black',
+        },
+      });
+      break;
+    case 'none':
+      setStyles({
+        ...styles,
+        name: {
+          ...name,
+          backgroundColor: 'transparent',
+        },
+      });
+      break;
+    default:
+      setStyles({
+        ...styles,
+        name,
+      });
+      break;
+  }
+};
+
 // 名前の位置（上下）
 const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
   const { position, top, ...name } = styles.name;
   switch (val) {
-    case '0px':
+    case '0':
       setStyles({
         ...styles,
         name,
@@ -204,7 +261,7 @@ const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         name: {
           ...name,
-          top: val,
+          top: `${val}px`,
           position: 'relative',
         },
       });
@@ -215,7 +272,7 @@ const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
 // 名前の位置（左右）
 const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
   switch (val) {
-    case '0px':
+    case '0':
       const { position, left, ...name } = styles.name;
       setStyles({
         ...styles,
@@ -229,7 +286,7 @@ const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         name: {
           ...styles.name,
-          left: val,
+          left: `${val}px`,
           position: 'relative',
         },
       });
@@ -240,8 +297,10 @@ export default {
   iconAlign,
   iconShape,
   iconSpeaking,
+  iconSpeakingDuration,
   iconSize,
   nameVisibility,
+  nameStyle,
   namePositionVertical,
   namePositionHorizontal,
 };
