@@ -24,7 +24,7 @@ const CssMaker = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={6}>
+      <Grid item md={6} xs={12}>
         <InputArea>
           <List>
             <SelectorListItem
@@ -95,7 +95,7 @@ const CssMaker = () => {
           </List>
         </InputArea>
       </Grid>
-      <Grid item xs={6} sx={{ overflow: 'hidden' }}>
+      <Grid item md={6} xs={12} sx={{ overflow: 'hidden' }}>
         <DiscordIconPreview styles={styles} />
       </Grid>
       <Grid item xs={12}>

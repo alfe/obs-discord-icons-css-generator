@@ -18,7 +18,7 @@ export default App
 
 const Header = () => (
   <header>
-    <Box sx={{ m: 10, mb: 5 }}>
+    <Box sx={{ m: 5 }}>
       <Typography align="center" component="h1" variant="h3" paragraph>
         OBSのDiscordアイコン外観変更ジェネレーター
       </Typography>
