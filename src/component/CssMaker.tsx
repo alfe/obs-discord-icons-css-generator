@@ -1,13 +1,13 @@
 import React from 'react'
 import Grid from '@mui/material/Grid'
 import List from '@mui/material/List'
-import TextField from '@mui/material/TextField'
 import cssObj from '../lib/cssObj'
 import { getCssText } from '../lib/cssText'
 import DiscordIconPreview, { CustomStyle } from './DiscordIconPreview'
 import SelectorListItem from './SelectorListItem'
 import InputArea from './InputArea'
 import SliderListItem from './SliderListItem'
+import CssString from './CssString';
 
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -99,12 +99,7 @@ const CssMaker = () => {
         <DiscordIconPreview styles={styles} />
       </Grid>
       <Grid item xs={12}>
-        <InputArea>
-          <TextField
-            fullWidth
-            multiline
-            value={getCssText(styles)} />
-        </InputArea>
+        <CssString value={getCssText(styles)} />
       </Grid>
     </Grid>
   );

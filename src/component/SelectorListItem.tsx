@@ -36,7 +36,7 @@ const SelectorListItem = ({ title, options, disabled, onChange }: SelectorListIt
         exclusive
         onChange={handleChange}>
         {(options || []).map((item: Option) => (
-          <ToggleButton value={item.value}>{item.label}</ToggleButton>
+          <ToggleButton key={`${title}-${item.label}-${item.value}`} value={item.value}>{item.label}</ToggleButton>
         ))}
       </ToggleButtonGroup>
     </ListItem>
