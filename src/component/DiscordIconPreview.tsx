@@ -1,3 +1,4 @@
+import React from 'react';
 import './animation.css'
 import './Discord.css'
 // https://discord.com/branding
@@ -15,6 +16,7 @@ export type DiscordIconPreviewProps = {
   styles: CustomStyle,
 }
 const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
+  const [speaking, setSpeaking] = React.useState(true);
   return (
     <div id="app-mount">
       <div style={{
@@ -23,9 +25,9 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
       }} data-reactid=".0">
         <div className="voice-container" style={styles.voiceContainer} data-reactid=".0.0">
           <ul className="voice-states" style={styles.voiceStates} data-reactid=".0.0.0">
-            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName="ユーザ（話し中）" speaking />
+            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName="ユーザ（クリックで切替え）" speaking={speaking} onClick={() => setSpeaking(!speaking)} />
             <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName="ユーザ" />
-            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName="ユーザ（とてもお話し中）" speaking />
+            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName="ユーザ（常にお話し中）" speaking />
             <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName="user" />
             <User userId="739080466790875187" backgroundColor="#ED4245" styles={styles} userName="User" />
           </ul>
@@ -41,14 +43,16 @@ type UserProps = {
   userName: string;
   backgroundColor: string;
   speaking?: boolean;
+  src?: string;
+  onClick?: React.MouseEventHandler<HTMLLIElement>;
   styles: CustomStyle;
 }
-const User = ({ userId, userName, backgroundColor, speaking, styles }: UserProps) => {
+const User = ({ userId, userName, backgroundColor, speaking, src, onClick, styles }: UserProps) => {
   return (
-    <li className="voice-state" style={styles.voiceState} data-reactid={`.0.0.0.$${userId}/=1$${userId}`}>
+    <li className="voice-state" style={styles.voiceState} data-reactid={`.0.0.0.$${userId}/=1$${userId}`} onClick={onClick}>
       <img
         className={`avatar ${speaking ? 'speaking' : ''}`}
-        src={DiscordIcon}
+        src={src || DiscordIcon}
         style={{ ...styles.avatar, ...(speaking ? styles.speaking : {}), ...(!backgroundColor ? {} : { background: backgroundColor }) }}
         data-reactid={`.0.0.0.$${userId}/=1$${userId}.$=10`} />
       <div className="user" data-reactid={`.0.0.0.$${userId}/=1$${userId}.$/=11`}>

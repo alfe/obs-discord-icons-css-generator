@@ -34,7 +34,12 @@ const Header = () => (
 const Footer = () => (
   <footer className='App-footer'>
     <p>
+      <a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >解説記事</a>
+      / 解説動画 (<a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >ニコニコ動画</a> / <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >Youtube</a>)
+    </p>
+    <p>
       made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
+      / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
     </p>
   </footer>
 );
