@@ -1,7 +1,19 @@
 {
   "name": "obs-discord-icons-css-generator",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
+  "description": "Generator to create custom CSS for displaying members of Discord call in OBS Studio, such as jumping, side-by-side or square icons.",
+  "keywords": ["obs", "discord", "icons", "css", "generator"],
+  "author": {
+    "name" : "alfe",
+    "email" : "alfe10251@gmail.com",
+    "url" : "https://alfebelow.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://obs-discord-icon.alfebelow.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfe/obs-discord-icons-css-generator",
+  },
   "scripts": {
     "dev": "vite",
     "start": "vite",
