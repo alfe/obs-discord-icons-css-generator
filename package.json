@@ -12,7 +12,7 @@
   "homepage": "https://obs-discord-icon.alfebelow.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alfe/obs-discord-icons-css-generator",
+    "url": "https://github.com/alfe/obs-discord-icons-css-generator"
   },
   "scripts": {
     "dev": "vite",
