@@ -2,7 +2,8 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import HelpIcon from '@mui/icons-material/Help';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { Box, Dialog, DialogContent, DialogTitle, Link } from "@mui/material";
+import { Box, Dialog, DialogContent, DialogTitle, Link, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import Add_browser from './img/1_add_browser.png';
 import obs_empty from './img/1_obs_empty.png';
 import DiscordStreamKitOverlay from './img/2_Discord-StreamKit-Overlay.png';
@@ -14,11 +15,12 @@ import obsComplete from './img/obs-complete.png';
 
 const TutorialButton = () => {
   const [open, setOpen] = useState(false);
+  const { t, i18n } = useTranslation("translation", { keyPrefix: "tutorial" });
   return (
     <>
       <Box sx={{ textAlign: 'center' }}>
         <Button variant="contained" onClick={() => setOpen(true)} startIcon={<HelpIcon />}>
-          使い方
+          {t("how_to_use")}
         </Button>
       </Box>
       <Dialog maxWidth="md" open={open} onClose={() => setOpen(false)}>
@@ -28,9 +30,19 @@ const TutorialButton = () => {
           borderBottom: '2px solid #333',
           fontWeight: 'bold',
         }}>
-          使い方
+          {t("how_to_use")}
         </DialogTitle>
         <DialogContent>
+          {i18n.language!=="ja" && (
+            <Box sx={{ textAlign: 'center', padding: 6, mt: 4, border: '2px solid coral' }}>
+              <Typography variant="h5" paragraph sx={{ m: 0 }}>
+                please see English introduction by <Link href="https://gigazine.net/gsc_news/en/20220517-obs-discord-icon-generator/" target='_blank'>
+                  GIGAZINE
+                </Link>
+              </Typography>
+            </Box>
+          )}
+
           <h2>1. OBSのソースにブラウザを追加</h2>
           <p>OBSを起動
           <br />OBSのシーンを選択後、「ソース」欄で右クリックしてブラウザを追加</p>

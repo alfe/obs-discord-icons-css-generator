@@ -1,7 +1,9 @@
 import CssMaker from './component/CssMaker'
 import './App.css'
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Typography } from '@mui/material';
+import { useTranslation } from "react-i18next";
 import TutorialButton from './component/TutorialButton';
+import { useEffect } from 'react';
 
 function App() {
   return (
@@ -16,31 +18,80 @@ function App() {
 };
 export default App
 
-const Header = () => (
-  <header>
-    <Box sx={{ m: 5 }}>
-      <Typography align="center" component="h1" variant="h3" paragraph>
-        OBSのDiscordアイコン外観変更ジェネレーター
-      </Typography>
-      <Container>
-        <Typography paragraph>
-          Discordで通話中のメンバーをOBS Studioに表示するときに、横並びにしたりアイコンを四角にしたりするためのカスタムCSSをつくるジェネレーター
+const Header = () => {
+  const { t, i18n } = useTranslation("translation", { keyPrefix: "header" });
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+    location.replace(`${location.origin}/${language === 'ja' ? '' : language}`)
+  };
+  useEffect(() => {
+    const language = i18n.language;
+    if ((location.pathname === '' || location.pathname === '/') && language !== 'ja') {
+      location.replace(`${location.origin}/${language}`)
+    }
+  }, [i18n.language]);
+
+  return (
+    <header>
+      <Box sx={{ m: 5 }}>
+        <ButtonGroup sx={{
+          position: 'absolute',
+          right: '2rem',
+          top: '1rem',
+        }}>
+          <Button
+            variant={i18n.language==="ja" ? "contained" : "outlined"}
+            onClick={() => changeLanguage("ja")}>
+              日本語
+          </Button>
+          <Button
+            variant={i18n.language==="en" ? "contained" : "outlined"}
+            onClick={() => changeLanguage("en")}>
+              English
+          </Button>
+        </ButtonGroup>
+        <Typography align="center" component="h1" variant="h3" paragraph>
+          {t("title")}
         </Typography>
-        <TutorialButton />
-      </Container>
-    </Box>
-  </header>
-);
-const Footer = () => (
-  <footer className='App-footer'>
-    <p>
-      解説記事 (<a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >ブログ</a>)
-      / 解説動画 (<a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >ニコニコ動画</a> / <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >Youtube</a>)
-      / メディア紹介 (<a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' >GIGAZINE</a>)
-    </p>
-    <p>
-      made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
-      / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
-    </p>
-  </footer>
-);
+        <Container>
+          <Typography align="center" paragraph>
+            {t("title_anno")}
+          </Typography>
+          <TutorialButton />
+        </Container>
+      </Box>
+    </header>
+  );
+};
+
+const Footer = () => {
+  const { t } = useTranslation("translation", { keyPrefix: "footer" });
+  return (
+    <footer className='App-footer'>
+      <p>
+      {t("commentary_article")} (
+        <a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >
+          {t("blog")}
+        </a>)
+        /
+        {t("commentary_video")} (
+          <a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >
+            {t("niconico")}
+          </a>
+          /
+          <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >
+            {t("youtube")}
+          </a>)
+        /
+        {t("media_introduction")} (
+          <a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' >
+            {t("gigazine")}
+          </a>)
+      </p>
+      <p>
+        made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
+        / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
+      </p>
+    </footer>
+  );
+};
