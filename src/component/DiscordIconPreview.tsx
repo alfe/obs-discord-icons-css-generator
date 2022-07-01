@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import './animation.css'
 import './Discord.css'
 // https://discord.com/branding
@@ -17,6 +18,7 @@ export type DiscordIconPreviewProps = {
 }
 const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
   const [speaking, setSpeaking] = React.useState(true);
+  const { t } = useTranslation("translation", { keyPrefix: "preview" });
   return (
     <div id="app-mount">
       <div style={{
@@ -25,9 +27,9 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
       }} data-reactid=".0">
         <div className="voice-container" style={styles.voiceContainer} data-reactid=".0.0">
           <ul className="voice-states" style={styles.voiceStates} data-reactid=".0.0.0">
-            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName="ユーザ（クリックで切替え）" speaking={speaking} onClick={() => setSpeaking(!speaking)} />
-            <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName="ユーザ" />
-            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName="ユーザ（常にお話し中）" speaking />
+            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName={t('user_click_to_switch')} speaking={speaking} onClick={() => setSpeaking(!speaking)} />
+            <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName={t('user_always_talking')} speaking />
             <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName="user" />
             <User userId="739080466790875187" backgroundColor="#ED4245" styles={styles} userName="User" />
           </ul>
