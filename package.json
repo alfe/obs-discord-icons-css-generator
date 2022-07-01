@@ -32,8 +32,8 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.6",
+    "@mui/icons-material": "5.8.4",
+    "@mui/material": "5.8.4",
     "i18next": "^21.8.11",
     "i18next-browser-languagedetector": "^6.1.4",
     "react": "^18.2.0",
