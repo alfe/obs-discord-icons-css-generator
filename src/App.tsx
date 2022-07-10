@@ -24,12 +24,21 @@ const Header = () => {
     i18n.changeLanguage(language);
     location.replace(`${location.origin}/${language === 'ja' ? '' : language}`)
   };
-  useEffect(() => {
+  const setLanguage = () => {
     const language = i18n.language;
-    if ((location.pathname === '' || location.pathname === '/') && language !== 'ja') {
-      location.replace(`${location.origin}/${language}`)
+    if ((location.pathname === '' || location.pathname === '/') && language === 'ja') {
+      return;
     }
-  }, [i18n.language]);
+    if (location.pathname === '/ja') {
+      changeLanguage('ja');
+    }
+    if ((location.pathname !== '' && location.pathname !== '/') && location.pathname !== '/ja' && (location.pathname.substring(1) !== language)) {
+      changeLanguage(location.pathname.substring(1));
+    }
+  }
+  useEffect(() => {
+    setLanguage();
+  }, []);
 
   return (
     <header>
