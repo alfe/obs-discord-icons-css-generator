@@ -20,9 +20,11 @@ const CssMaker = () => {
     name: {},
   });
 
+  const [alignment, setAlignment] = React.useState('vertical');
   const [activeMove, setActiveMove] = React.useState(false);
   const [activeNamePosition, setActiveNamePosition] = React.useState(true);
   const { t } = useTranslation("translation", { keyPrefix: "css_maker" });
+  console.log(styles)
 
   return (
     <Grid container spacing={2}>
@@ -31,11 +33,24 @@ const CssMaker = () => {
           <List>
             <SelectorListItem
               title={t("icon_alignment")}
-              onChange={(val) => cssObj.iconAlign({val, styles, setStyles})}
+              onChange={(val) => {
+                cssObj.iconAlign({val, styles, setStyles});
+                setAlignment(val);
+              }}
               options={[
                 { value: 'vertical', label: t('vertical') },
                 { value: 'horizontal', label: t('horizontal') },
               ]} />
+            <SliderListItem
+              title={t("top_and_bottom")}
+              disabled={alignment !== 'horizontal'}
+              min={0}
+              onChange={(val) => cssObj.iconRowGap({val, styles, setStyles})} />
+            <SliderListItem
+              title={t("left_right")}
+              disabled={alignment !== 'horizontal'}
+              min={0}
+              onChange={(val) => cssObj.iconColumnGap({val, styles, setStyles})} />
             <SelectorListItem
               title={t("icon_shape")}
               onChange={(val) => cssObj.iconShape({val, styles, setStyles})}

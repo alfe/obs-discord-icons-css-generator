@@ -8,8 +8,10 @@ export type SliderListItemProps = {
   title: string;
   disabled?: boolean;
   onChange: (value: string) => void;
+  min?: number;
+  max?: number;
 };
-const SliderListItem = ({ title, disabled, onChange }: SliderListItemProps) => {
+const SliderListItem = ({ title, disabled, onChange, min, max }: SliderListItemProps) => {
   const [value, setValue] = React.useState(0);
 
   React.useEffect(() => {
@@ -32,8 +34,8 @@ const SliderListItem = ({ title, disabled, onChange }: SliderListItemProps) => {
           defaultValue={0}
           value={value}
           disabled={disabled}
-          min={-150}
-          max={150}
+          min={typeof min === 'number' ? min : -150}
+          max={typeof max === 'number' ? max : 150}
           valueLabelDisplay="auto"
           onChange={handleChange} />
       </Box>
