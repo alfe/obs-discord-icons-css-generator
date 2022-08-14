@@ -17,6 +17,8 @@ const ja = {
   },
   css_maker: {
     icon_alignment: "アイコンの並び",
+    icon_row_gap: "アイコンの間隔（上下）",
+    icon_column_gap: "アイコンの間隔（左右）",
     vertical: "縦並び",
     horizontal: "横並び",
     icon_shape: "アイコンの形",

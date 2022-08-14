@@ -8,7 +8,7 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const { display, ...voiceStates } = styles.voiceStates;
+  const { display, rowGap, columnGap, ...voiceStates } = styles.voiceStates;
   const { display: _, flexDirection, ...voiceState } = styles.voiceState;
   const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name;
   switch (val) {
@@ -18,6 +18,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
         voiceStates: {
           ...voiceStates,
           display: 'flex',
+          flexWrap: 'wrap',
         },
         voiceState: {
           ...voiceState,
@@ -42,6 +43,53 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
         voiceStates,
         voiceState,
         name,
+      });
+      break;
+  }
+};
+// アイコンの間隔（上下）
+const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
+  const { rowGap, ...voiceStates } = styles.voiceStates;
+  switch (val) {
+    case '0':
+      setStyles({
+        ...styles,
+        voiceStates: {
+          ...voiceStates,
+        },
+      });
+      break;
+    default:
+      setStyles({
+        ...styles,
+        voiceStates: {
+          ...voiceStates,
+          rowGap: `${val}px`,
+        },
+      });
+      break;
+  }
+};
+
+// アイコンの間隔（左右）
+const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
+  const { columnGap, ...voiceStates } = styles.voiceStates;
+  switch (val) {
+    case '0':
+      setStyles({
+        ...styles,
+        voiceStates: {
+          ...voiceStates,
+        },
+      });
+      break;
+    default:
+      setStyles({
+        ...styles,
+        voiceStates: {
+          ...voiceStates,
+          columnGap: `${val}px`,
+        },
       });
       break;
   }
@@ -295,6 +343,8 @@ const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
 };
 export default {
   iconAlign,
+  iconRowGap,
+  iconColumnGap,
   iconShape,
   iconSpeaking,
   iconSpeakingDuration,
