@@ -42,12 +42,12 @@ const CssMaker = () => {
                 { value: 'horizontal', label: t('horizontal') },
               ]} />
             <SliderListItem
-              title={t("top_and_bottom")}
+              title={t("icon_row_gap")}
               disabled={alignment !== 'horizontal'}
               min={0}
               onChange={(val) => cssObj.iconRowGap({val, styles, setStyles})} />
             <SliderListItem
-              title={t("left_right")}
+              title={t("icon_column_gap")}
               disabled={alignment !== 'horizontal'}
               min={0}
               onChange={(val) => cssObj.iconColumnGap({val, styles, setStyles})} />

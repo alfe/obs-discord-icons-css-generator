@@ -17,6 +17,8 @@ const en = {
   },
   css_maker: {
     icon_alignment: "Icon alignment",
+    icon_row_gap: "Icon row gap",
+    icon_column_gap: "Icon column gap",
     vertical: "Vertical",
     horizontal: "Horizontal",
     icon_shape: "Icon shape",
