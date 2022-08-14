@@ -15,3 +15,23 @@ Default.args = {
   title: 'title',
   onChange: () => {},
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  title: 'title',
+  onChange: () => {},
+};
+
+export const withMax = Template.bind({});
+withMax.args = {
+  title: 'title',
+  max: 5,
+  onChange: () => {},
+};
+
+export const withMin = Template.bind({});
+withMin.args = {
+  title: 'title',
+  min: 5,
+  onChange: () => {},
+};
