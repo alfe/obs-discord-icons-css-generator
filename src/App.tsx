@@ -60,11 +60,11 @@ const Header = () => {
           </Button>
         </ButtonGroup>
         <Typography align="center" component="h1" variant="h3" paragraph>
-          {t("title")}
+          <>{t("title")}</>
         </Typography>
         <Container>
           <Typography align="center" paragraph>
-            {t("title_anno")}
+            <>{t("title_anno")}</>
           </Typography>
           <TutorialButton />
         </Container>
@@ -78,24 +78,26 @@ const Footer = () => {
   return (
     <footer className='App-footer'>
       <p>
-      {t("commentary_article")} (
-        <a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >
-          {t("blog")}
-        </a>)
-        /
-        {t("commentary_video")} (
-          <a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >
-            {t("niconico")}
-          </a>
+        <>
+        {t("commentary_article")} (
+          <a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >
+            <>{t("blog")}</>
+          </a>)
           /
-          <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >
-            {t("youtube")}
-          </a>)
-        /
-        {t("media_introduction")} (
-          <a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' >
-            {t("gigazine")}
-          </a>)
+          {t("commentary_video")} (
+            <a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >
+              <>{t("niconico")}</>
+            </a>
+            /
+            <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >
+              <>{t("youtube")}</>
+            </a>)
+          /
+          {t("media_introduction")} (
+            <a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' >
+              <>{t("gigazine")}</>
+            </a>)
+        </>
       </p>
       <p>
         made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>

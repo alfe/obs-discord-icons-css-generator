@@ -20,7 +20,7 @@ const TutorialButton = () => {
     <>
       <Box sx={{ textAlign: 'center' }}>
         <Button variant="contained" onClick={() => setOpen(true)} startIcon={<HelpIcon />}>
-          {t("how_to_use")}
+          <>{t("how_to_use")}</>
         </Button>
       </Box>
       <Dialog maxWidth="md" open={open} onClose={() => setOpen(false)}>
@@ -30,7 +30,7 @@ const TutorialButton = () => {
           borderBottom: '2px solid #333',
           fontWeight: 'bold',
         }}>
-          {t("how_to_use")}
+          <>{t("how_to_use")}</>
         </DialogTitle>
         <DialogContent>
           {i18n.language!=="ja" && (
