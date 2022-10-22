@@ -30,10 +30,10 @@
     "chromatic": "npx chromatic --project-token=75fb6554e7e1 --auto-accept-changes"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "5.8.4",
-    "@mui/material": "5.8.4",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "5.10.9",
+    "@mui/material": "5.10.10",
     "i18next": "^21.8.11",
     "i18next-browser-languagedetector": "^6.1.4",
     "react": "^18.2.0",
