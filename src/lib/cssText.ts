@@ -21,14 +21,14 @@ export const getCssText = (styles: CustomStyle) =>
 .map((className) => (Object.keys(styles[className]).length === 0)
 ? ''
 : `
-#app-mount .${toKebabCase(className)} {${Object
+[class*="Voice_${className}__"] {${Object
 .keys(styles[className])
 .map(k => `
   ${toKebabCase(k)}: ${styles[className][k]}${toImportant(k, className)};`)
 .join(` `)}
 }`)
 .join(` `).trim()
-+ `${!styles.speaking?.animation?.includes('speak-light') ? '' : `
++ `${!styles.avatarSpeaking?.animation?.includes('speak-light') ? '' : `
 @keyframes speak-light {
   0% {
     box-shadow: 0 0 4px #ffffff;
@@ -39,7 +39,7 @@ export const getCssText = (styles: CustomStyle) =>
   100% {
     box-shadow: 0 0 4px #ffffff;
   }
-}`}${!styles.speaking?.animation?.includes('speak-jump') ? '' : `
+}`}${!styles.avatarSpeaking?.animation?.includes('speak-jump') ? '' : `
 @keyframes speak-jump {
   0% {
     bottom: 0px;
