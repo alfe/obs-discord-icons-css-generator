@@ -63,8 +63,11 @@ const Header = () => {
           <>{t("title")}</>
         </Typography>
         <Container>
-          <Typography align="center" paragraph>
+        <Typography align="center" paragraph>
             <>{t("title_anno")}</>
+          </Typography>
+          <Typography align="center" paragraph variant="caption">
+            <>※ 2022.12.17 OBSのclass名変更に対応しました</>
           </Typography>
           <TutorialButton />
         </Container>
