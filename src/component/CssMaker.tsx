@@ -16,7 +16,7 @@ const CssMaker = () => {
     voiceStates: {},
     voiceState: {},
     avatar: {},
-    speaking: {},
+    avatarSpeaking: {},
     name: {},
   });
 

@@ -10,7 +10,7 @@ export type CustomStyle = {
   voiceStates: { [key: string]: string };
   voiceState: { [key: string]: string };
   avatar: { [key: string]: string };
-  speaking: { [key: string]: string };
+  avatarSpeaking: { [key: string]: string };
   name: { [key: string]: string };
 }
 export type DiscordIconPreviewProps = {
@@ -59,11 +59,11 @@ const User = ({ userId, userName, backgroundColor, speaking, src, onClick, style
       <img
         className={`avatar ${speaking ? 'speaking' : ''}`}
         src={src || DiscordIcon}
-        style={{ ...styles.avatar, ...(speaking ? styles.speaking : {}), ...(!backgroundColor ? {} : { background: backgroundColor }) }}
+        style={{ ...styles.avatar, ...(speaking ? styles.avatarSpeaking : {}), ...(!backgroundColor ? {} : { background: backgroundColor }) }}
         data-reactid={`.0.0.0.$${userId}/=1$${userId}.$=10`} />
       <div className="user" data-reactid={`.0.0.0.$${userId}/=1$${userId}.$/=11`}>
         <span
-          className=" name"
+          className="name"
           style={{
             color: '#ffffff',
             fontSize: 14,

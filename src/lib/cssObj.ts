@@ -112,7 +112,7 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
 // 話すときの動き
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
   const { filter: _, ...avatar } = styles.avatar;
-  const { position, animation, animationDuration, filter, borderColor, ...speaking } = styles.speaking;
+  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking;
   switch (val) {
     case 'light':
       setStyles({
@@ -121,8 +121,8 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
           ...avatar,
           filter: 'brightness(70%)',
         },
-        speaking: {
-          ...speaking,
+        avatarSpeaking: {
+          ...avatarSpeaking,
           position: 'relative',
           animation: '300ms infinite alternate ease-in-out speak-light',
           filter: 'brightness(100%)',
@@ -137,8 +137,8 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
           ...avatar,
           filter: 'brightness(70%)',
         },
-        speaking: {
-          ...speaking,
+        avatarSpeaking: {
+          ...avatarSpeaking,
           position: 'relative',
           animation: '300ms infinite alternate ease-in-out speak-jump',
           filter: 'brightness(100%)',
@@ -150,7 +150,7 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
       setStyles({
         ...styles,
         avatar,
-        speaking,
+        avatarSpeaking,
       });
       break;
   }
@@ -158,13 +158,13 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
 
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
-  const { animationDuration, ...speaking } = styles.speaking;
+  const { animationDuration, ...avatarSpeaking } = styles.avatarSpeaking;
   switch (val) {
     case '0':
       setStyles({
         ...styles,
-        speaking: {
-          ...speaking,
+        avatarSpeaking: {
+          ...avatarSpeaking,
           animationDuration: `300ms`,
         },
       });
@@ -172,8 +172,8 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
     default:
       setStyles({
         ...styles,
-        speaking: {
-          ...speaking,
+        avatarSpeaking: {
+          ...avatarSpeaking,
           animationDuration: `${300 - Number(val)}ms`,
         },
       });
