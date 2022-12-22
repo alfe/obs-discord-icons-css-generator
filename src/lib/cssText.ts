@@ -16,7 +16,7 @@ const toImportant = (property: string, className: string): string => {
   }
 }
 
-export const getCssText = (styles: CustomStyle) =>
+export const getCssText = ({ styles, hiddenUserId }: { styles: CustomStyle, hiddenUserId: string }) => 
 (Object.keys(styles) as (keyof CustomStyle)[])
 .map((className) => (Object.keys(styles[className]).length === 0)
 ? ''
@@ -28,6 +28,11 @@ export const getCssText = (styles: CustomStyle) =>
 .join(` `)}
 }`)
 .join(` `).trim()
++ `${!hiddenUserId ? '' : `
+[src*="avatars/${hiddenUserId}/"], [src*="avatars/${hiddenUserId}/"] + [class*="Voice_user_"]  {
+  display: none;
+}
+`}`
 + `${!styles.avatarSpeaking?.animation?.includes('speak-light') ? '' : `
 @keyframes speak-light {
   0% {

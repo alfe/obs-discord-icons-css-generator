@@ -25,7 +25,6 @@ const SelectorListItem = ({ title, options, disabled, onChange }: SelectorListIt
   };
   return (
     <ListItem
-      divider
       sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}
     >
       <FormLabel component="legend">{title}</FormLabel>

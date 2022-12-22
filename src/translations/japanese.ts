@@ -42,6 +42,7 @@ const ja = {
     text_only: "文字のみ",
     top_and_bottom: "名前の位置(上下)",
     left_right: "名前の位置(左右)",
+    hide_particular_user: "特定のユーザを隠す",
   },
   preview: {
     user_click_to_switch: 'ユーザ（クリックで切替え）',

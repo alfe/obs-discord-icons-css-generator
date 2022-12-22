@@ -9,6 +9,10 @@ import SelectorListItem from './SelectorListItem'
 import InputArea from './InputArea'
 import SliderListItem from './SliderListItem'
 import CssString from './CssString';
+import Box from '@mui/material/Box';
+import CheckBoxListItem from './CheckBoxListItem';
+import Divider from '@mui/material/Divider';
+import InputUserIdForm from './InputUserIdForm';
 
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -23,6 +27,7 @@ const CssMaker = () => {
   const [alignment, setAlignment] = React.useState('vertical');
   const [activeMove, setActiveMove] = React.useState(false);
   const [activeNamePosition, setActiveNamePosition] = React.useState(true);
+  const [hiddenUserId, setHiddenUserId] = React.useState('');
   const { t } = useTranslation("translation", { keyPrefix: "css_maker" });
   console.log(styles)
 
@@ -41,16 +46,21 @@ const CssMaker = () => {
                 { value: 'vertical', label: t('vertical') },
                 { value: 'horizontal', label: t('horizontal') },
               ]} />
-            <SliderListItem
-              title={t("icon_row_gap")}
-              disabled={alignment !== 'horizontal'}
-              min={0}
-              onChange={(val) => cssObj.iconRowGap({val, styles, setStyles})} />
-            <SliderListItem
-              title={t("icon_column_gap")}
-              disabled={alignment !== 'horizontal'}
-              min={0}
-              onChange={(val) => cssObj.iconColumnGap({val, styles, setStyles})} />
+            {alignment === 'horizontal' && (
+              <Box sx={{ ml: 2 }}>
+                <SliderListItem
+                  title={t("icon_row_gap")}
+                  disabled={alignment !== 'horizontal'}
+                  min={0}
+                  onChange={(val) => cssObj.iconRowGap({val, styles, setStyles})} />
+                <SliderListItem
+                  title={t("icon_column_gap")}
+                  disabled={alignment !== 'horizontal'}
+                  min={0}
+                  onChange={(val) => cssObj.iconColumnGap({val, styles, setStyles})} />
+              </Box>
+            )}
+            <Divider />
             <SelectorListItem
               title={t("icon_shape")}
               onChange={(val) => cssObj.iconShape({val, styles, setStyles})}
@@ -70,10 +80,13 @@ const CssMaker = () => {
                 { value: 'light', label: t('blinking') },
                 { value: 'jump', label: t('jump') },
               ]} />
-            <SliderListItem
-              title={t("speed_of_movement")}
-              disabled={!activeMove}
-              onChange={(val) => cssObj.iconSpeakingDuration({val, styles, setStyles})} />
+            {activeMove && (
+              <Box sx={{ ml: 2 }}>
+                <SliderListItem
+                  title={t("speed_of_movement")}
+                  onChange={(val) => cssObj.iconSpeakingDuration({val, styles, setStyles})} />
+              </Box>
+            )}
             <SelectorListItem
               title={t("icon_size")}
               onChange={(val) => cssObj.iconSize({val, styles, setStyles})}
@@ -82,33 +95,39 @@ const CssMaker = () => {
                 { value: 'lg', label: t('large') },
                 { value: 'xg', label: t('huge') },
               ]} />
-            <SelectorListItem
+            <Divider />
+            <CheckBoxListItem
               title={t("name")}
-              onChange={(val) => {
+              onChange={(value: boolean) => {
+                const val = value ? 'exist' : 'hidden';
                 cssObj.nameVisibility({val, styles, setStyles});
                 setActiveNamePosition(val === 'exist');
-              }}
-              options={[
-                { value: 'exist', label: t('show') },
-                { value: 'hidden', label: t('none') },
-              ]} />
-            <SelectorListItem
-              title={t("look_of_the_name")}
-              onChange={(val) => cssObj.nameStyle({val, styles, setStyles})}
-              disabled={!activeNamePosition}
-              options={[
-                { value: 'blackBk', label: t('black_base') },
-                { value: 'bordering', label: t('border') },
-                { value: 'none', label: t('text_only') },
-              ]} />
-            <SliderListItem
-              title={t("top_and_bottom")}
-              disabled={!activeNamePosition}
-              onChange={(val) => cssObj.namePositionVertical({val, styles, setStyles})} />
-            <SliderListItem
-              title={t("left_right")}
-              disabled={!activeNamePosition}
-              onChange={(val) => cssObj.namePositionHorizontal({val, styles, setStyles})} />
+              }} />
+            {activeNamePosition && (
+              <Box sx={{ ml: 2 }}>
+                <SelectorListItem
+                  title={t("look_of_the_name")}
+                  onChange={(val) => cssObj.nameStyle({val, styles, setStyles})}
+                  disabled={!activeNamePosition}
+                  options={[
+                    { value: 'blackBk', label: t('black_base') },
+                    { value: 'bordering', label: t('border') },
+                    { value: 'none', label: t('text_only') },
+                  ]} />
+                <SliderListItem
+                  title={t("top_and_bottom")}
+                  disabled={!activeNamePosition}
+                  onChange={(val) => cssObj.namePositionVertical({val, styles, setStyles})} />
+                <SliderListItem
+                  title={t("left_right")}
+                  disabled={!activeNamePosition}
+                  onChange={(val) => cssObj.namePositionHorizontal({val, styles, setStyles})} />
+              </Box>
+            )}
+            <Divider />
+            <InputUserIdForm
+              title={t("hide_particular_user")}
+              onChange={(userId) => setHiddenUserId(userId)} />
           </List>
         </InputArea>
       </Grid>
@@ -116,7 +135,7 @@ const CssMaker = () => {
         <DiscordIconPreview styles={styles} />
       </Grid>
       <Grid item xs={12}>
-        <CssString value={getCssText(styles)} />
+        <CssString value={getCssText({ styles, hiddenUserId })} />
       </Grid>
     </Grid>
   );

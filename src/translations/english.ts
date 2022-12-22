@@ -42,6 +42,7 @@ const en = {
     text_only: "Text only",
     top_and_bottom: "Position (top and bottom)",
     left_right: "Position (left and right)",
+    hide_particular_user: "hide particular user",
   },
   preview: {
     user_click_to_switch: 'User (click to switch)',
