@@ -17,8 +17,15 @@ import InputUserIdForm from './InputUserIdForm';
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
     voiceContainer: {},
-    voiceStates: {},
-    voiceState: {},
+    voiceStates: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    voiceState: {
+      display: 'flex',
+      height: 'initial',
+      marginBottom: '0',
+    },
     avatar: {},
     avatarSpeaking: {},
     name: {},

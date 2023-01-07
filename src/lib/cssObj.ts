@@ -8,7 +8,7 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const { display, rowGap, columnGap, ...voiceStates } = styles.voiceStates;
+  const { display, flexDirection: ___, rowGap, columnGap, ...voiceStates } = styles.voiceStates;
   const { display: _, flexDirection, ...voiceState } = styles.voiceState;
   const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name;
   switch (val) {
@@ -24,6 +24,8 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           ...voiceState,
           display: 'flex',
           flexDirection: 'column',
+          height: 'auto',
+          marginBottom: '0',
         },
         name: {
           ...name,
@@ -40,8 +42,17 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
     default:
       setStyles({
         ...styles,
-        voiceStates,
-        voiceState,
+        voiceStates: {
+          ...voiceStates,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        voiceState: {
+          ...voiceState,
+          display: 'flex',
+          height: 'initial',
+          marginBottom: '0',
+        },
         name,
       });
       break;
@@ -192,10 +203,10 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
           ...avatar,
           width: '80px',
           height: '80px',
+          marginBottom: '8px',
         },
         voiceState: {
           ...styles.voiceState,
-          height: '80px',
         },
         name: {
           ...styles.name,
@@ -210,10 +221,10 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
           ...avatar,
           width: '96px',
           height: '96px',
+          marginBottom: '8px',
         },
         voiceState: {
           ...styles.voiceState,
-          height: '96px',
         },
         name: {
           ...styles.name,
@@ -226,10 +237,10 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         avatar: {
           ...avatar,
+          marginBottom: '8px',
         },
         voiceState: {
           ...styles.voiceState,
-          height: '64px',
         },
         name: {
           ...styles.name,
