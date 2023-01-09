@@ -58,6 +58,16 @@ const Header = () => {
             onClick={() => changeLanguage("en")}>
               English
           </Button>
+          <Button
+            variant={i18n.language==="cs" ? "contained" : "outlined"}
+            onClick={() => changeLanguage("cs")}>
+              簡体字
+          </Button>
+          <Button
+            variant={i18n.language==="ct" ? "contained" : "outlined"}
+            onClick={() => changeLanguage("ct")}>
+              繁体字
+          </Button>
         </ButtonGroup>
         <Typography align="center" component="h1" variant="h3" paragraph>
           <>{t("title")}</>
@@ -79,13 +89,14 @@ const Header = () => {
 };
 
 const Footer = () => {
-  const { t } = useTranslation("translation", { keyPrefix: "footer" });
+  const { t,i18n } = useTranslation("translation", { keyPrefix: "footer" });
+  console.log(i18n)
   return (
     <footer className='App-footer'>
       <p>
         <>
         {t("commentary_article")} (
-          <a href='https://blog.alfebelow.com/entry/obs-discord-icon' target='_blank' >
+          <a href='https://blog.alfebelow.com/entry/2022/03/20/obs-discord-icon' target='_blank' >
             <>{t("blog")}</>
           </a>)
           /
@@ -107,6 +118,9 @@ const Footer = () => {
       <p>
         made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
         / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
+        {!(i18n.language === 'cs' || i18n.language === 'ct') ? '' : (<>
+          　中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' >@kiyomi425alice</a>
+        </>)}
       </p>
     </footer>
   );

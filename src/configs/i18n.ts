@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { EnglishTranslate, JapaneseTranslate } from "../translations";
+import { ChineseCsTranslate, ChineseCtTranslate, EnglishTranslate, JapaneseTranslate } from "../translations";
 
 i18n
   .use(LanguageDetector)
@@ -10,6 +10,10 @@ i18n
     resources: {
       en: { translation: EnglishTranslate },
       ja: { translation: JapaneseTranslate },
+      cs: { translation: ChineseCsTranslate },
+      ct: { translation: ChineseCtTranslate },
+      
+      
     },
     fallbackLng: "en",
     debug: true,
