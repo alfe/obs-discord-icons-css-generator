@@ -55,7 +55,7 @@ const en = {
   discord_user_id: {
     discord_user_id: 'Discord用戶ID',
     what_discord_user_id: 'Discord用戶ID是什麼？',
-    explain_discord_user_id: '你可以通過對Discord伺服器成員點擊右鍵來複製用戶ID，ID顯示如：ABCD#1234',
+    explain_discord_user_id: '你可以通過對Discord伺服器成員點擊右鍵來複製用戶ID，ID顯示如：123450000000000000',
     disabled_id_copy: '沒有出現「複製ID」',
     how_to_enable_copy: '如何使用「複製ID」？',
     on_developer_mode: '在Discord設定中開啟「開發者模式」來顯示它',
