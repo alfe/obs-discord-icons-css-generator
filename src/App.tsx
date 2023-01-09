@@ -67,9 +67,9 @@ const Header = () => {
             <>{t("title_anno")}</>
           </Typography>
           <Typography align="center" paragraph variant="caption">
-            <>※ 2022.12.22 「特定のユーザを隠す」機能を追加しました</> / 
-            <a href="https://obs-discord-picture.alfebelow.com/">アイコンから立ち絵に変えたいときはこちら</a> /
-            <a href="https://obs-discord-text.alfebelow.com/">テキストチャンネルの見た目を変えたいときはこちら</a>
+            <>{t('news')}</> / 
+            <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a> /
+            <a href="https://obs-discord-text.alfebelow.com/">{t('text_link')}</a>
           </Typography>
           <TutorialButton />
         </Container>

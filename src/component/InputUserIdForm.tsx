@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -13,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import idCopy from './img/id_copy.jpg';
 import discordSettingDetail from './img/discord-setting-detail.jpg';
 import discordUserSetting from './img/discord-user-setting.jpg';
+import { t } from 'i18next';
 
 export type InputUserIdFormProps = {
   title: string;
@@ -21,6 +23,7 @@ export type InputUserIdFormProps = {
 const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
   const [userId, setUserId] = React.useState('');
   const [open, setOpen] = React.useState(false);
+  const { t } = useTranslation("translation", { keyPrefix: "discord_user_id" });
 
   React.useEffect(() => {
     onChange(userId);
@@ -35,17 +38,17 @@ const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
         sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', columnGap: 2 }}
       >
         <FormLabel component="legend">{title}</FormLabel>
-        <TextField label="DiscordユーザID" variant="outlined" helperText={(
+        <TextField label={t('discord_user_id')} variant="outlined" helperText={(
           <Box sx={{ textAlign: 'right', mx: -2 }}>
             <Button onClick={() => { setOpen(true) }} sx={{ margin: '0 0 0 auto', fontSize: '.9em', alignItems: 'flex-end' }}>
-              <HelpOutlineIcon fontSize="small" />DiscordユーザIDとは？
+              <HelpOutlineIcon fontSize="small" />{t('what_discord_user_id')}
             </Button>
           </Box>
         )} onChange={handleUserIdChange} InputLabelProps={{ shrink: true }} placeholder="739000000000000000" />
       </ListItem>
 
       <Dialog open={open} onClose={() => { setOpen(false) }}>
-        <DialogTitle>DiscordユーザIDとは？</DialogTitle>
+        <DialogTitle>{t('what_discord_user_id')}</DialogTitle>
         <DialogContent>
           <AboutDiscordUserIdDialogContent />
         </DialogContent>
@@ -60,34 +63,38 @@ export default InputUserIdForm;
 
 const AboutDiscordUserIdDialogContent = () => {
   const [open, setOpen] = React.useState(false);
+  const { t } = useTranslation("translation", { keyPrefix: "discord_user_id" });
   return (
     <>
-      ディスコードサーバーのメンバーを右クリックすると出てくるメニューから、「IDをコピー」をクリックで取れるIDのことです
+      {t('explain_discord_user_id')}
       <Box sx={{ textAlign: 'center', m: 2 }}>
         <img src={idCopy} alt="メンバーを右クリックしてIDをコピー" />
       </Box>
       <Box sx={{ textAlign: 'right' }}>
         <Button onClick={() => { setOpen(true) }}>
-          <HelpOutlineIcon />「IDをコピー」がでない
+          <>
+            <HelpOutlineIcon />
+            {t('disabled_id_copy')}
+          </>
         </Button>
       </Box>
 
       <Dialog maxWidth="lg" open={open} onClose={() => { setOpen(false) }}>
-        <DialogTitle>「IDをコピー」を出すには</DialogTitle>
+        <DialogTitle><>{t('how_to_enable_copy')}</></DialogTitle>
         <DialogContent>
           <Typography sx={{ mb: 2 }}>
-            Discordで「開発者モード」を有効にすると表示ができるようになります。
+            <>{t('on_developer_mode')}</>
           </Typography>
 
           <Typography>
-            ユーザー設定を開いてから
+            <>{t('open_user_setting')}</>
           </Typography>
           <Box sx={{ textAlign: 'center', m: 2 }}>
             <img src={discordUserSetting} alt="Discordの左下からユーザー設定を開く" />
           </Box>
 
           <Typography>
-            詳細設定の開発モードにチェックを入れると有効になります。
+            <>{t('check_developer_mode')}</>
           </Typography>
           <Box sx={{ textAlign: 'center', m: 2 }}>
             <img src={discordSettingDetail} alt="詳細設定を開き、開発モードの欄をチェック" />

@@ -2,6 +2,9 @@ const en = {
   header: {
     title: "OBS Discord Icon Appearance Change Generator",
     title_anno: "Generator to create custom CSS for displaying members on a Discord call in OBS Studio, such as horizontal alignment or square icons",
+    icon_link: 'Tool for changing from icon to picture',
+    text_link: 'Tool for changing the appearance of the text channel',
+    news: 'Discord update is now supported',
   },
   footer: {
     commentary_article: 'Commentary article',
@@ -42,12 +45,22 @@ const en = {
     text_only: "Text only",
     top_and_bottom: "Position (top and bottom)",
     left_right: "Position (left and right)",
-    hide_particular_user: "hide particular user",
+    hide_particular_user: "Hide particular user",
   },
   preview: {
     user_click_to_switch: 'User (click to switch)',
     user: 'User',
     user_always_talking: 'User (always talking)',
+  },
+  discord_user_id: {
+    discord_user_id: 'Discord User ID',
+    what_discord_user_id: 'What\'s Discord User ID?',
+    explain_discord_user_id: 'The ID that can be obtained by right-clicking on a member of the discord server and clicking on "Copy ID" from the menu that appears when you right-click on a member of the discord server.',
+    disabled_id_copy: 'Copy ID doesn\'t appear.',
+    how_to_enable_copy: 'How do I get "Copy ID" to appear?',
+    on_developer_mode: 'You can enable "Developer Mode" in Discord to display it.',
+    open_user_setting: 'After opening the user settings',
+    check_developer_mode: 'Advanced Settings and check the Developer Mode checkbox to enable it.',
   },
 };
 export default en;

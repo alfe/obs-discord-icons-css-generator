@@ -2,6 +2,9 @@ const ja = {
   header: {
     title: "OBSのDiscordアイコン外観変更ジェネレーター",
     title_anno: "Discordで通話中のメンバーをOBS Studioに表示するときに、横並びにしたりアイコンを四角にしたりするためのカスタムCSSをつくるジェネレーター",
+    icon_link: 'アイコンから立ち絵に変えたいときはこちら',
+    text_link: 'テキストチャンネルの見た目を変えたいときはこちら',
+    news: '※ 2022.12.22 「特定のユーザを隠す」機能を追加しました',
   },
   footer: {
     commentary_article: '解説記事',
@@ -48,6 +51,16 @@ const ja = {
     user_click_to_switch: 'ユーザ（クリックで切替え）',
     user: 'ユーザ',
     user_always_talking: 'ユーザ（常にお話し中）',
+  },
+  discord_user_id: {
+    discord_user_id: 'DiscordユーザID',
+    what_discord_user_id: 'DiscordユーザIDとは？',
+    explain_discord_user_id: 'ディスコードサーバーのメンバーを右クリックすると出てくるメニューから、「IDをコピー」をクリックで取れるIDのことです',
+    disabled_id_copy: '「IDをコピー」がでない',
+    how_to_enable_copy: '「IDをコピー」を出すには',
+    on_developer_mode: 'Discordで「開発者モード」を有効にすると表示ができるようになります。',
+    open_user_setting: 'ユーザー設定を開いてから',
+    check_developer_mode: '詳細設定の開発モードにチェックを入れると有効になります。',
   },
 };
 export default ja;
