@@ -30,12 +30,12 @@ const DiscordIconPreview = ({ styles }: DiscordIconPreviewProps) => {
             <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName={t('user_click_to_switch')} speaking={speaking} onClick={() => setSpeaking(!speaking)} />
             <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName={t('user')} />
             <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName={t('user_always_talking')} speaking />
-            <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName="User" />
-            <User userId="739080466790875187" backgroundColor="#ED4245" styles={styles} userName="User" />
-            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName="User" />
-            <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName="User" />
-            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName="User" />
-            <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName="User" />
+            <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#ED4245" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#5865F2" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#57F287" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#f7a000" styles={styles} userName={t('user')} />
+            <User userId="739080466790875187" backgroundColor="#EB459E" styles={styles} userName={t('user')} />
           </ul>
         </div>
       </div>
