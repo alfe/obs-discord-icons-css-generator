@@ -22,7 +22,7 @@ const en = {
     icon_alignment: "头像方向",
     icon_row_gap: "头像间距 (上下)",
     icon_column_gap: "头像间距 (左右)",
-    vertical: "纵向排队",
+    vertical: "纵向排列",
     horizontal: "横向排列",
     icon_shape: "头像形状",
     circle: "⚪ 圆形",
