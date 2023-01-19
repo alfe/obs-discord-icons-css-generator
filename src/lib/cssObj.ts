@@ -167,6 +167,46 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
   }
 }
 
+type StyleInsetType = {
+  styles: CustomStyle;
+  setStyles: React.Dispatch<React.SetStateAction<CustomStyle>>;
+}
+// 話すときの動き
+export const setIconSpeakingStyle = ({
+  val, animationColor, styles, setStyles,
+}: StyleInsetType & { val: string[]; animationColor: string; }) => {
+  const { filter: _, ...avatar } = styles.avatar;
+  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking;
+
+  const newAnimation = val.map((animationType: string) => {
+    switch (animationType) {
+      case 'border':
+        return '';
+      case 'light':
+        return '750ms infinite alternate ease-in-out speak-light';
+      case 'jump':
+        return '750ms infinite alternate ease-in-out speak-jump';
+      default: return '';
+    }
+  }).filter((v) => !!v);
+
+  setStyles({
+    ...styles,
+    avatar: {
+      ...avatar,
+      filter: 'brightness(70%)',
+    },
+    avatarSpeaking: {
+      ...avatarSpeaking,
+      position: 'relative',
+      filter: 'brightness(100%)',
+      ...(!val.includes('border') ? { borderColor: 'transparent' } : { borderColor: animationColor }),
+      ...(newAnimation.length === 0 ? '' : { animation: newAnimation.join(',')}),
+      animationDuration,
+    }
+  });
+}
+
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
   const { animationDuration, ...avatarSpeaking } = styles.avatarSpeaking;
@@ -176,7 +216,7 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         avatarSpeaking: {
           ...avatarSpeaking,
-          animationDuration: `300ms`,
+          animationDuration: `750ms`,
         },
       });
       break;
@@ -185,7 +225,7 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         avatarSpeaking: {
           ...avatarSpeaking,
-          animationDuration: `${300 - Number(val)}ms`,
+          animationDuration: `${751 - Number(val) * 5}ms`,
         },
       });
       break;

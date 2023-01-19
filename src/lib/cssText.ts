@@ -1,4 +1,5 @@
 import { CustomStyle } from "../component/DiscordIconPreview";
+import { getCssKeyFrames } from "./getCssKeyFrames";
 
 const toKebabCase = (string: string) => string
 .replace(/([a-z])([A-Z])/g, "$1-$2")
@@ -16,7 +17,14 @@ const toImportant = (property: string, className: string): string => {
   }
 }
 
-export const getCssText = ({ styles, hiddenUserId }: { styles: CustomStyle, hiddenUserId: string }) => 
+export const getCssText = ({
+  styles, speakingStyles, animationColor, hiddenUserId,
+}: {
+  styles: CustomStyle;
+  speakingStyles: string[];
+  animationColor: string;
+  hiddenUserId: string;
+}) => 
 (Object.keys(styles) as (keyof CustomStyle)[])
 .map((className) => (Object.keys(styles[className]).length === 0)
 ? ''
@@ -33,27 +41,5 @@ export const getCssText = ({ styles, hiddenUserId }: { styles: CustomStyle, hidd
   display: none;
 }
 `}`
-+ `${!styles.avatarSpeaking?.animation?.includes('speak-light') ? '' : `
-@keyframes speak-light {
-  0% {
-    box-shadow: 0 0 4px #ffffff;
-  }
-  50% {
-    box-shadow: 0 0 16px #ffffff;
-  }
-  100% {
-    box-shadow: 0 0 4px #ffffff;
-  }
-}`}${!styles.avatarSpeaking?.animation?.includes('speak-jump') ? '' : `
-@keyframes speak-jump {
-  0% {
-    bottom: 0px;
-  }
-  50% {
-    bottom: 10px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}`}
-`;
++ getCssKeyFrames(speakingStyles, animationColor);
+

@@ -33,6 +33,7 @@ const ja = {
     blinking: "点滅",
     jump: "ぴょこぴょこ",
     speed_of_movement: "動きの速さ",
+    color: "色",
     icon_size: "アイコンの大きさ",
     normal: "標準",
     large: "大きい",

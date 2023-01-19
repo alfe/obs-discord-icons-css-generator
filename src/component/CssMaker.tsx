@@ -2,7 +2,7 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import List from '@mui/material/List'
 import { useTranslation } from "react-i18next";
-import cssObj from '../lib/cssObj'
+import cssObj, { setIconSpeakingStyle } from '../lib/cssObj'
 import { getCssText } from '../lib/cssText'
 import DiscordIconPreview, { CustomStyle } from './DiscordIconPreview'
 import SelectorListItem from './SelectorListItem'
@@ -13,6 +13,9 @@ import Box from '@mui/material/Box';
 import CheckBoxListItem from './CheckBoxListItem';
 import Divider from '@mui/material/Divider';
 import InputUserIdForm from './InputUserIdForm';
+import SelectorToggleButtonGroup from './SelectorToggleButtonGroup';
+import ColorPickerListItem from './ColorPickerListItem';
+import { getCssKeyFrames } from '../lib/getCssKeyFrames';
 
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -32,8 +35,10 @@ const CssMaker = () => {
   });
 
   const [alignment, setAlignment] = React.useState('vertical');
-  const [activeMove, setActiveMove] = React.useState(false);
+  // const [activeMove, setActiveMove] = React.useState(false);
   const [activeNamePosition, setActiveNamePosition] = React.useState(true);
+  const [speakingStyles, setSpeakingStyles] = React.useState(['border']);
+  const [animationColor, setAnimationColor] = React.useState('#FFFFFF');
   const [hiddenUserId, setHiddenUserId] = React.useState('');
   const { t } = useTranslation("translation", { keyPrefix: "css_maker" });
   console.log(styles)
@@ -77,6 +82,27 @@ const CssMaker = () => {
                 { value: 'rect', label: t('square') },
               ]} />
             <SelectorListItem
+              title={t("icon_size")}
+              onChange={(val) => cssObj.iconSize({val, styles, setStyles})}
+              options={[
+                { value: 'normal', label: t('normal') },
+                { value: 'lg', label: t('large') },
+                { value: 'xg', label: t('huge') },
+              ]} />
+              
+            <SelectorToggleButtonGroup
+              title={t("movement")}
+              onChange={(val) => {
+                setSpeakingStyles(val);
+                setIconSpeakingStyle({val, animationColor, styles, setStyles});
+              }}
+              options={[
+                { value: 'border', label: t('border') },
+                { value: 'light', label: t('blinking') },
+                { value: 'jump', label: t('jump') },
+              ]} />
+
+            {/* <SelectorListItem
               title={t("movement")}
               onChange={(val) => {
                 cssObj.iconSpeaking({val, styles, setStyles});
@@ -86,22 +112,27 @@ const CssMaker = () => {
                 { value: 'border', label: t('border') },
                 { value: 'light', label: t('blinking') },
                 { value: 'jump', label: t('jump') },
-              ]} />
-            {activeMove && (
+              ]} /> */}
+
+            {(speakingStyles.includes('light') || speakingStyles.includes('jump')) && (
               <Box sx={{ ml: 2 }}>
                 <SliderListItem
                   title={t("speed_of_movement")}
                   onChange={(val) => cssObj.iconSpeakingDuration({val, styles, setStyles})} />
               </Box>
             )}
-            <SelectorListItem
-              title={t("icon_size")}
-              onChange={(val) => cssObj.iconSize({val, styles, setStyles})}
-              options={[
-                { value: 'normal', label: t('normal') },
-                { value: 'lg', label: t('large') },
-                { value: 'xg', label: t('huge') },
-              ]} />
+            
+            {(speakingStyles.includes('light') || speakingStyles.includes('border')) && (
+              <Box sx={{ ml: 2 }}>
+                <ColorPickerListItem
+                  title={t("color")}
+                  defaultValue={animationColor}
+                  onChange={(value) => {
+                    setAnimationColor(`${value}`);
+                    setIconSpeakingStyle({ val: speakingStyles, animationColor, styles, setStyles });
+                  }} />
+              </Box>
+            )}
             <Divider />
             <CheckBoxListItem
               title={t("name")}
@@ -137,14 +168,28 @@ const CssMaker = () => {
               onChange={(userId) => setHiddenUserId(userId)} />
           </List>
         </InputArea>
+        <AnimationStyle
+          speakingStyles={speakingStyles}
+          animationColor={animationColor} />
       </Grid>
       <Grid item md={6} xs={12} sx={{ overflow: 'hidden' }}>
         <DiscordIconPreview styles={styles} />
       </Grid>
       <Grid item xs={12}>
-        <CssString value={getCssText({ styles, hiddenUserId })} />
+        <CssString value={getCssText({ styles, speakingStyles, animationColor, hiddenUserId })} />
       </Grid>
     </Grid>
   );
 };
 export default CssMaker;
+
+type AnimationStyleProps = {
+  speakingStyles: string[];
+  animationColor: string;
+};
+const AnimationStyle = ((props: AnimationStyleProps) => {
+  if ((props.speakingStyles || []).length === 0 || !props.animationColor) return null;
+  return (
+    <><style>{getCssKeyFrames(props.speakingStyles, props.animationColor)}</style></>
+  );
+});

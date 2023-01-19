@@ -33,6 +33,7 @@ const en = {
     blinking: "闪烁",
     jump: "跳跃",
     speed_of_movement: "运作速度",
+    color: "颜色",
     icon_size: "头像尺寸",
     normal: "标准",
     large: "大型",

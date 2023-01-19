@@ -33,6 +33,7 @@ const en = {
     blinking: "Blinking",
     jump: "Jump",
     speed_of_movement: "Speed of movement",
+    color: "color",
     icon_size: "Icon size",
     normal: "Normal",
     large: "Large",
