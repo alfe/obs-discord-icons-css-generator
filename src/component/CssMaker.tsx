@@ -102,18 +102,6 @@ const CssMaker = () => {
                 { value: 'jump', label: t('jump') },
               ]} />
 
-            {/* <SelectorListItem
-              title={t("movement")}
-              onChange={(val) => {
-                cssObj.iconSpeaking({val, styles, setStyles});
-                setActiveMove(val !== 'border');
-              }}
-              options={[
-                { value: 'border', label: t('border') },
-                { value: 'light', label: t('blinking') },
-                { value: 'jump', label: t('jump') },
-              ]} /> */}
-
             {(speakingStyles.includes('light') || speakingStyles.includes('jump')) && (
               <Box sx={{ ml: 2 }}>
                 <SliderListItem
