@@ -77,7 +77,7 @@ const Header = () => {
             <>{t("title_anno")}</>
           </Typography>
           <Typography align="center" paragraph variant="caption">
-            <>{t('news')}</> / 
+            {/* <>{t('news')}</> /  */}
             <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a> /
             <a href="https://obs-discord-text.alfebelow.com/">{t('text_link')}</a>
           </Typography>

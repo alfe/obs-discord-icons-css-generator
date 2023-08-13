@@ -4,7 +4,7 @@ const en = {
     title_anno: "用於 OBS Studio 中的顯示 Discord 頻道成員的自定義 CSS 產生器，例如水平對齊或方形頭像",
     icon_link: '如果你想把頭像變成立繪，請點擊這裡。',
     text_link: '如果你想改變文字頻道的顯示方式，請點擊這裡。',
-    news: '* 2022.12.22 增加“隱藏特定用戶”功能',
+    news: '',
   },
   footer: {
     commentary_article: '教學文章',

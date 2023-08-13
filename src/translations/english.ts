@@ -4,7 +4,7 @@ const en = {
     title_anno: "Generator to create custom CSS for displaying members on a Discord call in OBS Studio, such as horizontal alignment or square icons",
     icon_link: 'Tool for changing from icon to picture',
     text_link: 'Tool for changing the appearance of the text channel',
-    news: 'Discord update is now supported',
+    news: '',
   },
   footer: {
     commentary_article: 'Commentary article',
