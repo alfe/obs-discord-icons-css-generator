@@ -4,7 +4,7 @@ const en = {
     title_anno: "生成器可以创建自定义CSS，用于在OBS Studio中显示Discord呼叫的成员，如并排或方形图标。",
     icon_link: '如果你想把头像变成立绘，请点击这里。',
     text_link: '如果你想改变文字频道的显示方式，请点击这里。',
-    news: '* 2022.12.22 增加“屏蔽特定用户”功能',
+    news: '',
   },
   footer: {
     commentary_article: '文章解说',

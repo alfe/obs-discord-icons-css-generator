@@ -4,7 +4,7 @@ const ja = {
     title_anno: "Discordで通話中のメンバーをOBS Studioに表示するときに、横並びにしたりアイコンを四角にしたりするためのカスタムCSSをつくるジェネレーター",
     icon_link: 'アイコンから立ち絵に変えたいときはこちら',
     text_link: 'テキストチャンネルの見た目を変えたいときはこちら',
-    news: '※ 2022.01.19 アニメーションを複数選択できるようにしました',
+    news: '',
   },
   footer: {
     commentary_article: '解説記事',
