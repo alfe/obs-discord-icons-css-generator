@@ -6,12 +6,12 @@ import './Discord.css'
 import DiscordIcon from './Discord-icon.svg'
 
 export type CustomStyle = {
-  voiceContainer: { [key: string]: string },
-  voiceStates: { [key: string]: string };
-  voiceState: { [key: string]: string };
-  avatar: { [key: string]: string };
-  avatarSpeaking: { [key: string]: string };
-  name: { [key: string]: string };
+  voiceContainer?: { [key: string]: string },
+  voiceStates?: { [key: string]: string };
+  voiceState?: { [key: string]: string };
+  avatar?: { [key: string]: string };
+  avatarSpeaking?: { [key: string]: string };
+  name?: { [key: string]: string };
 }
 export type DiscordIconPreviewProps = {
   styles: CustomStyle,

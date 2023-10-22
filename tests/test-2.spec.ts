@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('横並び', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: '日本語' }).click();
   await page.getByRole('button', { name: '縦並び' }).click();

@@ -8,9 +8,9 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const { display, flexDirection: ___, rowGap, columnGap, ...voiceStates } = styles.voiceStates;
-  const { display: _, flexDirection, ...voiceState } = styles.voiceState;
-  const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name;
+  const { display, flexDirection: ___, rowGap, columnGap, ...voiceStates } = styles.voiceStates || {};
+  const { display: _, flexDirection, ...voiceState } = styles.voiceState || {};
+  const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name || {};
   switch (val) {
     case 'horizontal':
       setStyles({
@@ -60,7 +60,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
 };
 // アイコンの間隔（上下）
 const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
-  const { rowGap, ...voiceStates } = styles.voiceStates;
+  const { rowGap, ...voiceStates } = styles.voiceStates || {};
   switch (val) {
     case '0':
       setStyles({
@@ -84,7 +84,7 @@ const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの間隔（左右）
 const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
-  const { columnGap, ...voiceStates } = styles.voiceStates;
+  const { columnGap, ...voiceStates } = styles.voiceStates || {};
   switch (val) {
     case '0':
       setStyles({
@@ -108,7 +108,7 @@ const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの形
 const iconShape = ({ val, styles, setStyles }: StringValArg) => {
-  const { borderRadius, ...avatar } = styles.avatar;
+  const { borderRadius, ...avatar } = styles.avatar || {};
   setStyles({
     ...styles,
     avatar: {
@@ -122,8 +122,8 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
 
 // 話すときの動き
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
-  const { filter: _, ...avatar } = styles.avatar;
-  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking;
+  const { filter: _, ...avatar } = styles.avatar || {};
+  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking || {};
   switch (val) {
     case 'light':
       setStyles({
@@ -175,8 +175,8 @@ type StyleInsetType = {
 export const setIconSpeakingStyle = ({
   val, animationColor, styles, setStyles,
 }: StyleInsetType & { val: string[]; animationColor: string; }) => {
-  const { filter: _, ...avatar } = styles.avatar;
-  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking;
+  const { filter: _, ...avatar } = styles.avatar || {};
+  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking || {};
 
   const newAnimation = val.map((animationType: string) => {
     switch (animationType) {
@@ -209,7 +209,7 @@ export const setIconSpeakingStyle = ({
 
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
-  const { animationDuration, ...avatarSpeaking } = styles.avatarSpeaking;
+  const { animationDuration, ...avatarSpeaking } = styles.avatarSpeaking || {};
   switch (val) {
     case '0':
       setStyles({
@@ -234,7 +234,7 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの大きさ
 const iconSize = ({ val, styles, setStyles }: StringValArg) => {
-  const { width, height, ...avatar } = styles.avatar;
+  const { width, height, marginBottom, ...avatar } = styles.avatar || {};
   switch (val) {
     case 'lg':
       setStyles({
@@ -277,7 +277,6 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         avatar: {
           ...avatar,
-          marginBottom: '8px',
         },
         voiceState: {
           ...styles.voiceState,
@@ -293,7 +292,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前
 const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
-  const { visibility, ...name } = styles.name;
+  const { visibility, ...name } = styles.name || {};
   switch (val) {
     case 'exist':
       setStyles({
@@ -315,7 +314,7 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の見た目
 const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
-  const { backgroundColor, textShadow, ...name } = styles.name;
+  const { backgroundColor, textShadow, ...name } = styles.name || {};
   switch (val) {
     case 'bordering':
       setStyles({
@@ -347,7 +346,7 @@ const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の位置（上下）
 const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
-  const { position, top, ...name } = styles.name;
+  const { position, top, ...name } = styles.name || {};
   switch (val) {
     case '0':
       setStyles({
@@ -372,7 +371,7 @@ const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
 const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
   switch (val) {
     case '0':
-      const { position, left, ...name } = styles.name;
+      const { position, left, ...name } = styles.name || {};
       setStyles({
         ...styles,
         name: {
