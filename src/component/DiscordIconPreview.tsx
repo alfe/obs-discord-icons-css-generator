@@ -1,17 +1,18 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import './animation.css'
 import './Discord.css'
 // https://discord.com/branding
 import DiscordIcon from './Discord-icon.svg'
 
 export type CustomStyle = {
-  voiceContainer: { [key: string]: string },
-  voiceStates: { [key: string]: string };
-  voiceState: { [key: string]: string };
-  avatar: { [key: string]: string };
-  avatarSpeaking: { [key: string]: string };
-  name: { [key: string]: string };
+  voiceContainer?: { [key: string]: string },
+  voiceStates?: { [key: string]: string };
+  voiceState?: { [key: string]: string };
+  avatar?: { [key: string]: string };
+  avatarSpeaking?: { [key: string]: string };
+  user?: { [key: string]: string };
+  name?: { [key: string]: string };
 }
 export type DiscordIconPreviewProps = {
   styles: CustomStyle,
@@ -61,7 +62,7 @@ const User = ({ userId, userName, backgroundColor, speaking, src, onClick, style
         src={src || DiscordIcon}
         style={{ ...styles.avatar, ...(speaking ? styles.avatarSpeaking : {}), ...(!backgroundColor ? {} : { background: backgroundColor }) }}
         data-reactid={`.0.0.0.$${userId}/=1$${userId}.$=10`} />
-      <div className="user" data-reactid={`.0.0.0.$${userId}/=1$${userId}.$/=11`}>
+      <div className="user" style={styles.user} data-reactid={`.0.0.0.$${userId}/=1$${userId}.$/=11`}>
         <span
           className="name"
           style={{

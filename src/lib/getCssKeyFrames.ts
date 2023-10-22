@@ -23,7 +23,7 @@
 // }`}
 // `;
 
-export const getCssKeyFrames = (speakingStyles: string[], animationColor: string) => {
+export const getCssKeyFrames = (speakingStyles: string[] = [], animationColor: string = '#fff') => {
   let result = '';
   if (speakingStyles.includes('jump')) {
     result += `
