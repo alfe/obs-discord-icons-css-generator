@@ -1,3 +1,4 @@
+import omit from "lodash/omit";
 import { CustomStyle } from "../component/DiscordIconPreview";
 
 type StringValArg = {
@@ -8,9 +9,9 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const { display, flexDirection: ___, rowGap, columnGap, ...voiceStates } = styles.voiceStates || {};
-  const { display: _, flexDirection, ...voiceState } = styles.voiceState || {};
-  const { boxSizing, textOverflow, whiteSpace, overflow, display: __, textAlign, ...name } = styles.name || {};
+  const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap']);
+  const voiceState = omit(styles.voiceState, ['display', 'flexDirection']);
+  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);
   switch (val) {
     case 'horizontal':
       setStyles({
@@ -60,14 +61,12 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
 };
 // アイコンの間隔（上下）
 const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
-  const { rowGap, ...voiceStates } = styles.voiceStates || {};
+  const voiceStates = omit(styles.voiceStates, ['rowGap']);
   switch (val) {
     case '0':
       setStyles({
         ...styles,
-        voiceStates: {
-          ...voiceStates,
-        },
+        voiceStates
       });
       break;
     default:
@@ -84,14 +83,12 @@ const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの間隔（左右）
 const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
-  const { columnGap, ...voiceStates } = styles.voiceStates || {};
+  const voiceStates = omit(styles.voiceStates, ['columnGap']);
   switch (val) {
     case '0':
       setStyles({
         ...styles,
-        voiceStates: {
-          ...voiceStates,
-        },
+        voiceStates,
       });
       break;
     default:
@@ -108,7 +105,7 @@ const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの形
 const iconShape = ({ val, styles, setStyles }: StringValArg) => {
-  const { borderRadius, ...avatar } = styles.avatar || {};
+  const avatar = omit(styles.avatar, ['borderRadius']);
   setStyles({
     ...styles,
     avatar: {
@@ -122,8 +119,8 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
 
 // 話すときの動き
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
-  const { filter: _, ...avatar } = styles.avatar || {};
-  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking || {};
+  const avatar = omit(styles.avatar, ['filter']);
+  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'animationDuration', 'filter', 'borderColor']);
   switch (val) {
     case 'light':
       setStyles({
@@ -175,8 +172,8 @@ type StyleInsetType = {
 export const setIconSpeakingStyle = ({
   val, animationColor, styles, setStyles,
 }: StyleInsetType & { val: string[]; animationColor: string; }) => {
-  const { filter: _, ...avatar } = styles.avatar || {};
-  const { position, animation, animationDuration, filter, borderColor, ...avatarSpeaking } = styles.avatarSpeaking || {};
+  const avatar = omit(styles.avatar, ['filter']);
+  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'filter', 'borderColor']);
 
   const newAnimation = val.map((animationType: string) => {
     switch (animationType) {
@@ -202,14 +199,13 @@ export const setIconSpeakingStyle = ({
       filter: 'brightness(100%)',
       ...(!val.includes('border') ? { borderColor: 'transparent' } : { borderColor: animationColor }),
       ...(newAnimation.length === 0 ? '' : { animation: newAnimation.join(',')}),
-      animationDuration,
     }
   });
 }
 
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
-  const { animationDuration, ...avatarSpeaking } = styles.avatarSpeaking || {};
+  const avatarSpeaking = omit(styles.avatarSpeaking, ['animationDuration']);
   switch (val) {
     case '0':
       setStyles({
@@ -234,7 +230,7 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの大きさ
 const iconSize = ({ val, styles, setStyles }: StringValArg) => {
-  const { width, height, marginBottom, ...avatar } = styles.avatar || {};
+  const avatar = omit(styles.avatar, ['width', 'height', 'marginBottom']);
   switch (val) {
     case 'lg':
       setStyles({
@@ -292,7 +288,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前
 const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
-  const { visibility, ...name } = styles.name || {};
+  const name = omit(styles.name, ['visibility']);
   switch (val) {
     case 'exist':
       setStyles({
@@ -314,7 +310,7 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の見た目
 const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
-  const { backgroundColor, textShadow, ...name } = styles.name || {};
+  const name = omit(styles.name, ['backgroundColor', 'textShadow']);
   switch (val) {
     case 'bordering':
       setStyles({
@@ -346,7 +342,7 @@ const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の位置（上下）
 const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
-  const { position, top, ...name } = styles.name || {};
+  const name = omit(styles.name, ['position', 'top']);
   switch (val) {
     case '0':
       setStyles({
@@ -369,21 +365,19 @@ const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
 
 // 名前の位置（左右）
 const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
+  const name = omit(styles.name, ['position', 'left']);
   switch (val) {
     case '0':
-      const { position, left, ...name } = styles.name || {};
       setStyles({
         ...styles,
-        name: {
-          ...name,
-        },
+        name,
       });
       break;
     default:
       setStyles({
         ...styles,
         name: {
-          ...styles.name,
+          ...name,
           left: `${val}px`,
           position: 'relative',
         },
