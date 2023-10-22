@@ -1,9 +1,8 @@
-import CssMaker from './component/CssMaker'
-import './App.css'
+import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonGroup, Container, Typography } from '@mui/material';
-import { useTranslation } from "react-i18next";
+import CssMaker from './component/CssMaker'
 import TutorialButton from './component/TutorialButton';
-import { useEffect } from 'react';
+import './App.css'
 
 function App() {
   return (
@@ -24,32 +23,17 @@ const Header = () => {
     i18n.changeLanguage(language);
     location.replace(`${location.origin}/${language === 'ja' ? '' : language}`)
   };
-  const setLanguage = () => {
-    const language = i18n.language;
-    if ((location.pathname === '' || location.pathname === '/') && language === 'ja') {
-      return;
-    }
-    if (location.pathname === '/ja') {
-      changeLanguage('ja');
-    }
-    if ((location.pathname !== '' && location.pathname !== '/') && location.pathname !== '/ja' && (location.pathname.substring(1) !== language)) {
-      changeLanguage(location.pathname.substring(1));
-    }
-  }
-  useEffect(() => {
-    setLanguage();
-  }, []);
 
   return (
     <header>
-      <Box sx={{ m: 5 }}>
+      <Box sx={{ m: 5, mt: 8 }}>
         <ButtonGroup sx={{
           position: 'absolute',
-          right: '2rem',
-          top: '1rem',
+          right: '1rem',
+          top: '0.5rem',
         }}>
           <Button
-            variant={i18n.language==="ja" ? "contained" : "outlined"}
+            variant={(location.pathname === '' || i18n.language==="ja") ? "contained" : "outlined"}
             onClick={() => changeLanguage("ja")}>
               日本語
           </Button>

@@ -11,7 +11,8 @@ type StringValArg = {
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
   const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap']);
   const voiceState = omit(styles.voiceState, ['display', 'flexDirection']);
-  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);
+  const user = omit(styles.user, ['paddingTop']);
+  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);1
   switch (val) {
     case 'horizontal':
       setStyles({
@@ -28,9 +29,13 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           height: 'auto',
           marginBottom: '0',
         },
+        user: {
+          ...user,
+          paddingTop: '0px',
+        },
         name: {
           ...name,
-          maxWidth: styles?.avatar?.width || '64px',
+          maxWidth: styles?.avatar?.width || '70px',
           boxSizing: 'border-box',
           textOverflow: 'clip',
           whiteSpace: 'nowrap',
@@ -54,6 +59,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           height: 'initial',
           marginBottom: '0',
         },
+        user,
         name,
       });
       break;
@@ -246,7 +252,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         },
         name: {
           ...styles.name,
-          maxWidth: '80px',
+          maxWidth: '86px', // アイコンサイズ+6px
         },
       });
       break;
@@ -264,7 +270,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         },
         name: {
           ...styles.name,
-          maxWidth: '96px',
+          maxWidth: '102px',
         },
       });
       break;
@@ -279,7 +285,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         },
         name: {
           ...styles.name,
-          maxWidth: '64px',
+          maxWidth: '70px',
         },
       });
       break;
