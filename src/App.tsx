@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonGroup, Container, Typography } from '@mui/material';
 import CssMaker from './component/CssMaker'
@@ -23,6 +24,17 @@ const Header = () => {
     i18n.changeLanguage(language);
     location.replace(`${location.origin}/${language === 'ja' ? '' : language}`)
   };
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/en': i18n.changeLanguage('en'); break;
+      case '/cs': i18n.changeLanguage('cs'); break;
+      case '/ct': i18n.changeLanguage('ct'); break;
+      case '/ja': i18n.changeLanguage('ja'); break;
+      case '':
+      default:
+        break;
+    }
+  }, [])
 
   return (
     <header>
