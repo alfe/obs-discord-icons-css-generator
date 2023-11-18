@@ -1,6 +1,6 @@
 {
   "name": "obs-discord-icons-css-generator",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Generator to create custom CSS for displaying members of Discord call in OBS Studio, such as jumping, side-by-side or square icons.",
   "keywords": [
     "obs",
@@ -32,36 +32,37 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "5.14.3",
-    "@mui/material": "5.14.4",
-    "i18next": "^23.4.4",
-    "i18next-browser-languagedetector": "^7.1.0",
+    "@mui/icons-material": "5.14.18",
+    "@mui/material": "5.14.18",
+    "i18next": "^23.7.6",
+    "i18next-browser-languagedetector": "^7.2.0",
     "lodash.omit": "^4.5.0",
-    "mui-color-input": "^2.0.0",
+    "mui-color-input": "^2.0.1",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-i18next": "^13.1.2"
+    "react-i18next": "^13.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.10",
-    "@playwright/test": "^1.37.0",
-    "@storybook/addon-actions": "^7.2.3",
-    "@storybook/addon-essentials": "^7.2.3",
-    "@storybook/addon-interactions": "^7.2.3",
-    "@storybook/addon-links": "^7.2.3",
-    "@storybook/react": "^7.2.3",
-    "@storybook/testing-library": "^0.2.0",
-    "@types/react": "^18.2.20",
-    "@types/react-copy-to-clipboard": "5.0.4",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react": "^4.0.4",
+    "@babel/core": "^7.23.3",
+    "@playwright/test": "^1.40.0",
+    "@storybook/addon-actions": "^7.5.3",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/react": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
+    "@types/react": "^18.2.37",
+    "@types/react-copy-to-clipboard": "5.0.7",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
     "babel-loader": "^9.1.3",
-    "chromatic": "^6.21.0",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.9"
+    "chromatic": "^9.1.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
   },
   "resolutions": {
     "@types/react": "^18.2.20"
-  }
+  },
+  "packageManager": "yarn@3.6.4"
 }

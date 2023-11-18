@@ -1,28 +1,3 @@
-// + `${!styles.avatarSpeaking?.animation?.includes('speak-light') ? '' : `
-// @keyframes speak-light {
-//   0% {
-//     box-shadow: 0 0 4px #ffffff;
-//   }
-//   50% {
-//     box-shadow: 0 0 16px #ffffff;
-//   }
-//   100% {
-//     box-shadow: 0 0 4px #ffffff;
-//   }
-// }`}${!styles.avatarSpeaking?.animation?.includes('speak-jump') ? '' : `
-// @keyframes speak-jump {
-//   0% {
-//     bottom: 0px;
-//   }
-//   50% {
-//     bottom: 10px;
-//   }
-//   100% {
-//     bottom: 0px;
-//   }
-// }`}
-// `;
-
 export const getCssKeyFrames = (speakingStyles: string[] = [], animationColor: string = '#fff') => {
   let result = '';
   if (speakingStyles.includes('jump')) {

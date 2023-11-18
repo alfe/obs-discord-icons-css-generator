@@ -30,3 +30,9 @@ dist-ssr
 /playwright-report/
 /playwright/.cache/
 cypress/support/customCommands.d.ts
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
