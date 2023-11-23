@@ -29,7 +29,9 @@ const CssMaker = () => {
       height: 'initial',
       marginBottom: '0',
     },
-    avatar: {},
+    avatar: {
+      marginRight: '0',
+    },
     avatarSpeaking: {},
     name: {},
   });
@@ -80,6 +82,7 @@ const CssMaker = () => {
                 { value: 'circle', label: t('circle') },
                 { value: 'rect-r', label: t('rounded') },
                 { value: 'rect', label: t('square') },
+                { value: 'tall', label: t('tall') },
               ]} />
             <SelectorListItem
               title={t("icon_size")}

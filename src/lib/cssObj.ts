@@ -9,7 +9,7 @@ type StringValArg = {
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap']);
+  const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap', 'margin']);
   const voiceState = omit(styles.voiceState, ['display', 'flexDirection']);
   const user = omit(styles.user, ['paddingTop']);
   const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);1
@@ -21,6 +21,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           ...voiceStates,
           display: 'flex',
           flexWrap: 'wrap',
+          margin: '32px',
         },
         voiceState: {
           ...voiceState,
@@ -111,14 +112,26 @@ const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの形
 const iconShape = ({ val, styles, setStyles }: StringValArg) => {
-  const avatar = omit(styles.avatar, ['borderRadius']);
+  const height = Number(styles?.avatar?.height?.replace('px', '') || 50);
+  const wasTall = !!styles?.avatar?.height && styles?.avatar?.height !== styles?.avatar?.width;
+  const avatar = omit(styles.avatar, ['borderRadius', 'objectFit']);
+  console.log(height, wasTall, styles?.avatar, styles?.avatar?.height, styles?.avatar?.width)
   setStyles({
     ...styles,
     avatar: {
       ...avatar,
       ...((val === 'circle') ? {} : {
         borderRadius: (val === 'rect-r') ? '8px' : '0px',
-      })
+      }),
+      ...((val === 'tall' && !wasTall)
+        ? {
+          objectFit: 'cover',
+          height: `${height * 2}px`,
+        }
+        : {
+          height: `${wasTall ? height / 2 : height}px`,
+        }
+      ),
     }
   })
 };
@@ -178,8 +191,8 @@ type StyleInsetType = {
 export const setIconSpeakingStyle = ({
   val, animationColor, styles, setStyles,
 }: StyleInsetType & { val: string[]; animationColor: string; }) => {
-  const avatar = omit(styles.avatar, ['filter']);
-  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'filter', 'borderColor']);
+  const avatar = omit(styles.avatar, ['filter', 'marginRight']);
+  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'filter', 'borderColor', 'zIndex']);
 
   const newAnimation = val.map((animationType: string) => {
     switch (animationType) {
@@ -198,6 +211,7 @@ export const setIconSpeakingStyle = ({
     avatar: {
       ...avatar,
       filter: 'brightness(70%)',
+      marginRight: '0',
     },
     avatarSpeaking: {
       ...avatarSpeaking,
@@ -205,6 +219,7 @@ export const setIconSpeakingStyle = ({
       filter: 'brightness(100%)',
       ...(!val.includes('border') ? { borderColor: 'transparent' } : { borderColor: animationColor }),
       ...(newAnimation.length === 0 ? '' : { animation: newAnimation.join(',')}),
+      zIndex: '1',
     }
   });
 }
@@ -236,7 +251,9 @@ const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
 
 // アイコンの大きさ
 const iconSize = ({ val, styles, setStyles }: StringValArg) => {
+  const isTall = !!styles?.avatar?.height && styles?.avatar?.height !== styles?.avatar?.width;
   const avatar = omit(styles.avatar, ['width', 'height', 'marginBottom']);
+
   switch (val) {
     case 'lg':
       setStyles({
@@ -244,7 +261,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         avatar: {
           ...avatar,
           width: '80px',
-          height: '80px',
+          height: `${80 * (!!isTall ? 2 : 1)}px`,
           marginBottom: '8px',
         },
         voiceState: {
@@ -262,7 +279,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         avatar: {
           ...avatar,
           width: '96px',
-          height: '96px',
+          height: `${96 * (!!isTall ? 2 : 1)}px`,
           marginBottom: '8px',
         },
         voiceState: {
@@ -279,6 +296,7 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
         ...styles,
         avatar: {
           ...avatar,
+          ...(!!isTall ? { width: '50px', height: '100px' } : {}),
         },
         voiceState: {
           ...styles.voiceState,

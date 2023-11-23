@@ -1,6 +1,12 @@
 
 .App-content {
   background-color: #282c34;
+  background:
+    linear-gradient(63deg, rgba(0,0,0,.1) 23%, transparent 23%) 7px 0,
+    linear-gradient(63deg, transparent 74%, rgba(0,0,0,.1) 78%),
+    linear-gradient(63deg, transparent 34%, rgba(0,0,0,.1) 38%, rgba(0,0,0,.1) 58%, transparent 62%),
+    #282c34;
+  background-size: 16px 48px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

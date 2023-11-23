@@ -28,6 +28,7 @@ const en = {
     circle: "⚪ Circle",
     rounded: "🔲 Rounded",
     square: "⬜ Square",
+    tall: "▯ Tall",
     movement: "Movement",
     border: "Border",
     blinking: "Blinking",
