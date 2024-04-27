@@ -27,14 +27,20 @@ export default defineConfig({
     baseURL: 'https://obs-discord-icon.alfebelow.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    // trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        video: {
+          mode: 'off',
+          size: { width: 1280, height: 720 }
+        }
+      },
     },
 
     {

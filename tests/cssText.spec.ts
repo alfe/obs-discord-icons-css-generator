@@ -17,7 +17,7 @@ test("voiceState", async () => {
   height: auto;
   margin-bottom: 0px;
   flex-direction: column;
-}`	
+}`
 	)
 });
 

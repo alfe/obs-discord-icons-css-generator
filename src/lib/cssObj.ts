@@ -7,6 +7,12 @@ type StringValArg = {
   setStyles: React.Dispatch<React.SetStateAction<CustomStyle>>;
 };
 
+const getIsTall = (avatar: CustomStyle['avatar']) => {
+  const height = Number(avatar?.height?.replace('px', '') || 50);
+  const width = Number(avatar?.width?.replace('px', '') || 50);
+  return height !== width;
+}
+
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
   const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap', 'margin']);
@@ -36,7 +42,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
         },
         name: {
           ...name,
-          maxWidth: styles?.avatar?.width || '70px',
+          maxWidth: styles?.avatar?.width || '56px',
           boxSizing: 'border-box',
           textOverflow: 'clip',
           whiteSpace: 'nowrap',
@@ -113,9 +119,8 @@ const iconColumnGap = ({ val, styles, setStyles }: StringValArg) => {
 // アイコンの形
 const iconShape = ({ val, styles, setStyles }: StringValArg) => {
   const height = Number(styles?.avatar?.height?.replace('px', '') || 50);
-  const wasTall = !!styles?.avatar?.height && styles?.avatar?.height !== styles?.avatar?.width;
-  const avatar = omit(styles.avatar, ['borderRadius', 'objectFit']);
-  console.log(height, wasTall, styles?.avatar, styles?.avatar?.height, styles?.avatar?.width)
+  const wasTall = getIsTall(styles?.avatar);
+  const avatar = omit(styles.avatar, ['borderRadius', 'objectFit', 'height']);
   setStyles({
     ...styles,
     avatar: {
@@ -227,85 +232,43 @@ export const setIconSpeakingStyle = ({
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
   const avatarSpeaking = omit(styles.avatarSpeaking, ['animationDuration']);
-  switch (val) {
-    case '0':
-      setStyles({
-        ...styles,
-        avatarSpeaking: {
-          ...avatarSpeaking,
-          animationDuration: `750ms`,
-        },
-      });
-      break;
-    default:
-      setStyles({
-        ...styles,
-        avatarSpeaking: {
-          ...avatarSpeaking,
-          animationDuration: `${751 - Number(val) * 5}ms`,
-        },
-      });
-      break;
-  }
+  const animationDuration = val === '0' ? '750ms' : `${751 - Number(val) * 5}ms`;
+  setStyles({
+    ...styles,
+    avatarSpeaking: {
+      ...avatarSpeaking,
+      animationDuration,
+    },
+  });
 };
 
 // アイコンの大きさ
 const iconSize = ({ val, styles, setStyles }: StringValArg) => {
-  const isTall = !!styles?.avatar?.height && styles?.avatar?.height !== styles?.avatar?.width;
+  const isTall = getIsTall(styles?.avatar);
   const avatar = omit(styles.avatar, ['width', 'height', 'marginBottom']);
 
+  const getStyle = (size: number) => ({
+    ...styles,
+    avatar: {
+      ...avatar,
+      width: `${size}px`,
+      height: `${size * (!!isTall ? 2 : 1)}px`,
+      marginBottom: '8px',
+    },
+    name: {
+      ...styles.name,
+      maxWidth: `${size + 6}px`, // アイコンサイズ+6px
+    },
+  })
   switch (val) {
     case 'lg':
-      setStyles({
-        ...styles,
-        avatar: {
-          ...avatar,
-          width: '80px',
-          height: `${80 * (!!isTall ? 2 : 1)}px`,
-          marginBottom: '8px',
-        },
-        voiceState: {
-          ...styles.voiceState,
-        },
-        name: {
-          ...styles.name,
-          maxWidth: '86px', // アイコンサイズ+6px
-        },
-      });
+      setStyles(getStyle(80));
       break;
     case 'xg':
-      setStyles({
-        ...styles,
-        avatar: {
-          ...avatar,
-          width: '96px',
-          height: `${96 * (!!isTall ? 2 : 1)}px`,
-          marginBottom: '8px',
-        },
-        voiceState: {
-          ...styles.voiceState,
-        },
-        name: {
-          ...styles.name,
-          maxWidth: '102px',
-        },
-      });
+      setStyles(getStyle(96));
       break;
     default:
-      setStyles({
-        ...styles,
-        avatar: {
-          ...avatar,
-          ...(!!isTall ? { width: '50px', height: '100px' } : {}),
-        },
-        voiceState: {
-          ...styles.voiceState,
-        },
-        name: {
-          ...styles.name,
-          maxWidth: '70px',
-        },
-      });
+      setStyles(getStyle(50));
       break;
   }
 };
