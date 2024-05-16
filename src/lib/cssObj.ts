@@ -49,6 +49,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           overflow: 'hidden',
           display: 'block',
           textAlign: 'center',
+          zIndex: '2',
         }
       });
       break;
@@ -331,12 +332,6 @@ const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
 const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
   const name = omit(styles.name, ['position', 'top']);
   switch (val) {
-    case '0':
-      setStyles({
-        ...styles,
-        name,
-      });
-      break;
     default:
       setStyles({
         ...styles,
@@ -354,12 +349,6 @@ const namePositionVertical = ({ val, styles, setStyles }: StringValArg) => {
 const namePositionHorizontal = ({ val, styles, setStyles }: StringValArg) => {
   const name = omit(styles.name, ['position', 'left']);
   switch (val) {
-    case '0':
-      setStyles({
-        ...styles,
-        name,
-      });
-      break;
     default:
       setStyles({
         ...styles,
