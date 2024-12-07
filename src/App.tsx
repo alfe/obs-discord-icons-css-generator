@@ -1,19 +1,75 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, Button, ButtonGroup, Container, Typography } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, Button, ButtonGroup, colors, Container, Typography } from '@mui/material';
+import { green, grey, purple } from '@mui/material/colors';
 import CssMaker from './component/CssMaker'
 import TutorialButton from './component/TutorialButton';
 import './App.css'
+import shadows from '@mui/material/styles/shadows';
+
+const DISCORD_BLUE = '#5865F2';
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: DISCORD_BLUE,
+      },
+      secondary: {
+        main: green[500],
+      },
+      text: {
+        primary: grey[50],
+        secondary: grey[100],
+      }
+    },
+    components: {
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            color: grey[900],
+          },
+        },
+      },
+      MuiToggleButton: {
+        styleOverrides: {
+          root: {
+            color: grey[200],
+          }
+        }
+      },
+      MuiToggleButtonGroup: {
+        styleOverrides: {
+          root: {
+            color: grey[50],
+            '.Mui-selected.Mui-selected': {
+              backgroundColor: '#5865F2',
+              color: grey[50],
+              boxShadow: shadows[2],
+              borderRadius: '4px',
+            },
+            '.Mui-selected.Mui-selected:hover': {
+              backgroundColor: '#5865F2',
+              color: grey[50],
+              boxShadow: shadows[2],
+              borderRadius: '4px',
+            }
+          }
+        },
+      },
+    },
+  });
   return (
-    <div className='App-content'>
-      <Header />
-      <Container>
-        <CssMaker />
-      </Container>
-      <Footer />
-    </div >
+    <ThemeProvider theme={theme}>
+      <div className='App-content'>
+        <Header />
+        <Container>
+          <CssMaker />
+        </Container>
+        <Footer />
+      </div >
+    </ThemeProvider>
   );
 };
 export default App
@@ -39,32 +95,32 @@ const Header = () => {
   return (
     <header>
       <Box sx={{ m: 5, mt: 8 }}>
-        <ButtonGroup sx={{
+        <Box sx={{
           position: 'absolute',
           right: '1rem',
           top: '0.5rem',
         }}>
           <Button
-            variant={(location.pathname === '' || i18n.language==="ja") ? "contained" : "outlined"}
+            variant={(location.pathname === '' || i18n.language==="ja") ? "contained" : "text"}
             onClick={() => changeLanguage("ja")}>
               日本語
           </Button>
           <Button
-            variant={i18n.language==="en" ? "contained" : "outlined"}
+            variant={i18n.language==="en" ? "contained" : "text"}
             onClick={() => changeLanguage("en")}>
               English
           </Button>
           <Button
-            variant={i18n.language==="cs" ? "contained" : "outlined"}
+            variant={i18n.language==="cs" ? "contained" : "text"}
             onClick={() => changeLanguage("cs")}>
               簡体字
           </Button>
           <Button
-            variant={i18n.language==="ct" ? "contained" : "outlined"}
+            variant={i18n.language==="ct" ? "contained" : "text"}
             onClick={() => changeLanguage("ct")}>
               繁体字
           </Button>
-        </ButtonGroup>
+        </Box>
         <Typography align="center" component="h1" variant="h3" paragraph>
           <>{t("title")}</>
         </Typography>
@@ -73,7 +129,7 @@ const Header = () => {
             <>{t("title_anno")}</>
           </Typography>
           <Typography align="center" paragraph variant="caption">
-            <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a> /
+            <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a>&emsp;/&emsp; 
             <a href="https://obs-discord-text.alfebelow.com/">{t('text_link')}</a>
             <br /><>{t('news')}</>
           </Typography>
@@ -115,7 +171,7 @@ const Footer = () => {
         made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
         / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
         {!(i18n.language === 'cs' || i18n.language === 'ct') ? '' : (<>
-          　中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' >@kiyomi425alice</a>
+          &emsp; 中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' >@kiyomi425alice</a>
         </>)}
       </p>
     </footer>

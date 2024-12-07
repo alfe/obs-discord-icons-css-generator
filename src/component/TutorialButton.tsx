@@ -12,6 +12,7 @@ import discordUrl from './img/discord-url.png';
 import copyCss from './img/copy-css.png';
 import obsCss from './img/obs-css.png';
 import obsComplete from './img/obs-complete.png';
+import { grey } from "@mui/material/colors";
 
 const TutorialButton = () => {
   const [open, setOpen] = useState(false);
@@ -19,8 +20,16 @@ const TutorialButton = () => {
   return (
     <>
       <Box sx={{ textAlign: 'center' }}>
-        <Button variant="contained" onClick={() => setOpen(true)} startIcon={<HelpIcon />}>
-          <>{t("how_to_use")}</>
+        <Button
+          sx={{
+            px: 4,
+            py: 2,
+            color: grey[50],
+          }}
+          variant="contained"
+          startIcon={<HelpIcon fontSize="large" />}
+          onClick={() => setOpen(true)}>
+          {t("how_to_use")}
         </Button>
       </Box>
       <Dialog maxWidth="md" open={open} onClose={() => setOpen(false)}>

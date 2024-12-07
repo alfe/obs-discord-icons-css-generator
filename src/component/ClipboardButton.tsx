@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import { grey } from '@mui/material/colors';
 
 export type ClipboardButtonProps = {
   value: string;
@@ -21,6 +22,7 @@ const ClipboardButton = (props: ClipboardButtonProps) => {
       setOpenTip(false);
     }, 1000);
   };
+
   return (
     <Tooltip
       arrow
@@ -32,6 +34,12 @@ const ClipboardButton = (props: ClipboardButtonProps) => {
       <div>
         <CopyToClipboard text={props.value} onCopy={handleClickButton}>
           <IconButton
+            sx={{
+              color: grey[50],
+              background: 'linear-gradient(145deg, #24282f, #2b2f38)',
+              boxShadow: '20px 20px 40px #20232a,-20px -20px 40px #30353e, 0 0 0 2px inset var(--main-color)',
+            }}
+            size="large"
             disabled={props.value === ''}
             aria-label="copy to clipboard"
             onMouseDown={handleMouseDownPassword}>

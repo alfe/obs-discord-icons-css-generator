@@ -1,11 +1,15 @@
 
 .App-content {
-  background-color: #282c34;
+  --main-bg-color: #282c34;
+  --main-color: #5865F2;
+  --main-link-color: #979eeb;
+
+  background-color: var(--main-bg-color);
   background:
     linear-gradient(63deg, rgba(0,0,0,.1) 23%, transparent 23%) 7px 0,
     linear-gradient(63deg, transparent 74%, rgba(0,0,0,.1) 78%),
     linear-gradient(63deg, transparent 34%, rgba(0,0,0,.1) 38%, rgba(0,0,0,.1) 58%, transparent 62%),
-    #282c34;
+    var(--main-bg-color);
   background-size: 16px 48px;
   min-height: 100vh;
   display: flex;
@@ -16,7 +20,7 @@
 }
 
 .App-footer {
-  background-color: #282c34;
+  background-color: var(--main-bg-color);
   width: 100%;
   text-align: center;
 }
@@ -26,10 +30,19 @@
   margin: .5rem;
 }
 
+.App-footer {
+  width: 100%;
+  padding-top: 2rem;
+  background: linear-gradient(transparent, 10%, var(--main-bg-color));
+}
 .App-footer a {
-  color: #61dafb;
+  color: var(--main-link-color);
 }
 
+header {
+  width: 100%;
+  background: linear-gradient(var(--main-bg-color), 90%, transparent);
+}
 header a {
-  color: #61dafb;
+  color: var(--main-link-color);
 }
