@@ -29,8 +29,7 @@ const ClipboardButton = (props: ClipboardButtonProps) => {
       open={openTip}
       disableHoverListener
       placement='top'
-      title='Copied!'
-    >
+      title='Copied!'>
       <div>
         <CopyToClipboard text={props.value} onCopy={handleClickButton}>
           <IconButton

@@ -45,8 +45,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",
-    "@playwright/experimental-ct-react": "^1.44.0",
-    "@playwright/test": "^1.44.0",
     "@storybook/addon-actions": "^7.6.19",
     "@storybook/addon-essentials": "^7.6.19",
     "@storybook/addon-interactions": "^7.6.19",

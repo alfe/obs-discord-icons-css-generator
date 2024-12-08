@@ -25,8 +25,7 @@ const SliderListItem = ({ title, disabled, onChange, min, max }: SliderListItemP
   };
   return (
     <ListItem
-      sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}
-    >
+      sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}>
       <FormLabel component="legend">{title}</FormLabel>
       <Box sx={{ width: 250 }}>
         <Slider

@@ -1159,40 +1159,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.44.0":
-  version: 1.44.0
-  resolution: "@playwright/experimental-ct-core@npm:1.44.0"
-  dependencies:
-    playwright: 1.44.0
-    playwright-core: 1.44.0
-    vite: ^5.2.8
-  checksum: 02a531c10ec312d77af9566ab87b7ef04d0c65267a784f1ee18fad87a5da1d8d2848ae93f9b19eaa3e7e2c3bf03a2b501910c71a0ee6e40cc4efe227002edae0
-  languageName: node
-  linkType: hard
-
-"@playwright/experimental-ct-react@npm:^1.44.0":
-  version: 1.44.0
-  resolution: "@playwright/experimental-ct-react@npm:1.44.0"
-  dependencies:
-    "@playwright/experimental-ct-core": 1.44.0
-    "@vitejs/plugin-react": ^4.2.1
-  bin:
-    playwright: cli.js
-  checksum: 3fa469d2735204abe52d2e0d48632bcb606e9ad4a32aa04455dcce8425ae95705562e2a3847d5c1e5d6731fe1ca883dddc58c98baf5369c740a1329fb593c96f
-  languageName: node
-  linkType: hard
-
-"@playwright/test@npm:^1.44.0":
-  version: 1.44.0
-  resolution: "@playwright/test@npm:1.44.0"
-  dependencies:
-    playwright: 1.44.0
-  bin:
-    playwright: cli.js
-  checksum: 64cb12e26156e0530d16cec629d82c228db7a57fe29096a6961a18fc8b7fc5f35e28f8905af7039fad5d3af0224d38e93dba479760db2ce16a63c5e2fbe2990c
-  languageName: node
-  linkType: hard
-
 "@popperjs/core@npm:^2.11.8":
   version: 2.11.8
   resolution: "@popperjs/core@npm:2.11.8"
@@ -4015,31 +3981,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:2.3.2":
-  version: 2.3.2
-  resolution: "fsevents@npm:2.3.2"
-  dependencies:
-    node-gyp: latest
-  checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
 "fsevents@npm:^2.3.2, fsevents@npm:~2.3.2, fsevents@npm:~2.3.3":
   version: 2.3.3
   resolution: "fsevents@npm:2.3.3"
   dependencies:
     node-gyp: latest
   checksum: 11e6ea6fea15e42461fc55b4b0e4a0a3c654faa567f1877dbd353f39156f69def97a69936d1746619d656c4b93de2238bf731f6085a03a50cabf287c9d024317
-  conditions: os=darwin
-  languageName: node
-  linkType: hard
-
-"fsevents@patch:fsevents@2.3.2#~builtin<compat/fsevents>":
-  version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
-  dependencies:
-    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -5318,8 +5265,6 @@ __metadata:
     "@emotion/styled": ^11.11.5
     "@mui/icons-material": 5.15.17
     "@mui/material": 5.15.17
-    "@playwright/experimental-ct-react": ^1.44.0
-    "@playwright/test": ^1.44.0
     "@storybook/addon-actions": ^7.6.19
     "@storybook/addon-essentials": ^7.6.19
     "@storybook/addon-interactions": ^7.6.19
@@ -5543,30 +5488,6 @@ __metadata:
   dependencies:
     find-up: ^6.3.0
   checksum: 94298b20a446bfbbd66604474de8a0cdd3b8d251225170970f15d9646f633e056c80520dd5b4c1d1050c9fed8f6a9e5054b141c93806439452efe72e57562c03
-  languageName: node
-  linkType: hard
-
-"playwright-core@npm:1.44.0":
-  version: 1.44.0
-  resolution: "playwright-core@npm:1.44.0"
-  bin:
-    playwright-core: cli.js
-  checksum: 7bee257c830153578753a6dfb34b8216f8c552d750e24a0be6d3ba10baff013fb1320a1c3d487fbb0df9d1ce5d1f027ccf6e990d4514989da63691f177141ba4
-  languageName: node
-  linkType: hard
-
-"playwright@npm:1.44.0":
-  version: 1.44.0
-  resolution: "playwright@npm:1.44.0"
-  dependencies:
-    fsevents: 2.3.2
-    playwright-core: 1.44.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  bin:
-    playwright: cli.js
-  checksum: 22653ded652f436c1a837842009a175e8acb91ab340bb3deee87dbdb7205b439bd174f5f20591eb67f0171728c9f8f4bdfa3668a517da6bc7b45a4a79eabdbd5
   languageName: node
   linkType: hard
 
@@ -6638,7 +6559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.2.11, vite@npm:^5.2.8":
+"vite@npm:^5.2.11":
   version: 5.2.11
   resolution: "vite@npm:5.2.11"
   dependencies:

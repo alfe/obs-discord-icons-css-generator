@@ -1,23 +1,24 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Box, Button, ButtonGroup, colors, Container, Typography } from '@mui/material';
-import { green, grey, purple } from '@mui/material/colors';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import CssMaker from './component/CssMaker'
 import TutorialButton from './component/TutorialButton';
 import './App.css'
 import shadows from '@mui/material/styles/shadows';
+import grey from '@mui/material/colors/grey';
+import createTheme from '@mui/material/styles/createTheme';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 
 const DISCORD_BLUE = '#5865F2';
 
-function App() {
+const App = () => {
   const theme = createTheme({
     palette: {
       primary: {
         main: DISCORD_BLUE,
-      },
-      secondary: {
-        main: green[500],
       },
       text: {
         primary: grey[50],
@@ -103,29 +104,29 @@ const Header = () => {
           <Button
             variant={(location.pathname === '' || i18n.language==="ja") ? "contained" : "text"}
             onClick={() => changeLanguage("ja")}>
-              日本語
+            日本語
           </Button>
           <Button
             variant={i18n.language==="en" ? "contained" : "text"}
             onClick={() => changeLanguage("en")}>
-              English
+            English
           </Button>
           <Button
             variant={i18n.language==="cs" ? "contained" : "text"}
             onClick={() => changeLanguage("cs")}>
-              簡体字
+            簡体字
           </Button>
           <Button
             variant={i18n.language==="ct" ? "contained" : "text"}
             onClick={() => changeLanguage("ct")}>
-              繁体字
+            繁体字
           </Button>
         </Box>
         <Typography align="center" component="h1" variant="h3" paragraph>
           <>{t("title")}</>
         </Typography>
         <Container>
-        <Typography align="center" paragraph>
+          <Typography align="center" paragraph>
             <>{t("title_anno")}</>
           </Typography>
           <Typography align="center" paragraph variant="caption">
@@ -142,36 +143,35 @@ const Header = () => {
 
 const Footer = () => {
   const { t,i18n } = useTranslation("translation", { keyPrefix: "footer" });
-  console.log(i18n)
   return (
     <footer className='App-footer'>
       <p>
         <>
-        {t("commentary_article")} (
-          <a href='https://blog.alfebelow.com/entry/2022/03/20/obs-discord-icon' target='_blank' >
+          {t("commentary_article")} (
+          <a href='https://blog.alfebelow.com/entry/2022/03/20/obs-discord-icon' target='_blank' rel="noreferrer" >
             <>{t("blog")}</>
           </a>)
           /
           {t("commentary_video")} (
-            <a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' >
-              <>{t("niconico")}</>
-            </a>
-            /
-            <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' >
-              <>{t("youtube")}</>
-            </a>)
+          <a href='https://www.nicovideo.jp/watch/sm40224062' target='_blank' rel="noreferrer" >
+            <>{t("niconico")}</>
+          </a>
+          /
+          <a href='https://youtu.be/ZXNQdsp-M0k' target='_blank' rel="noreferrer" >
+            <>{t("youtube")}</>
+          </a>)
           /
           {t("media_introduction")} (
-            <a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' >
-              <>{t("gigazine")}</>
-            </a>)
+          <a href='https://gigazine.net/news/20220517-obs-discord-icon-generator/' target='_blank' rel="noreferrer" >
+            <>{t("gigazine")}</>
+          </a>)
         </>
       </p>
       <p>
-        made by <a href='https://twitter.com/alfe_below' target='_blank' >@alfe_below</a>
-        / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' >GitHub</a>
+        made by <a href='https://twitter.com/alfe_below' target='_blank' rel="noreferrer" >@alfe_below</a>
+        / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' rel="noreferrer" >GitHub</a>
         {!(i18n.language === 'cs' || i18n.language === 'ct') ? '' : (<>
-          &emsp; 中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' >@kiyomi425alice</a>
+          &emsp; 中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' rel="noreferrer" >@kiyomi425alice</a>
         </>)}
       </p>
     </footer>

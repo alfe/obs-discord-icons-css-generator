@@ -54,7 +54,7 @@ const TutorialButton = () => {
 
           <h2>1. OBSのソースにブラウザを追加</h2>
           <p>OBSを起動
-          <br />OBSのシーンを選択後、「ソース」欄で右クリックしてブラウザを追加</p>
+            <br />OBSのシーンを選択後、「ソース」欄で右クリックしてブラウザを追加</p>
           <Box sx={{ textAlign: 'center' }}>
             <img src={Add_browser} />
           </Box>

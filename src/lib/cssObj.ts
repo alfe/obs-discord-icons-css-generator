@@ -18,7 +18,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
   const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap', 'margin']);
   const voiceState = omit(styles.voiceState, ['display', 'flexDirection']);
   const user = omit(styles.user, ['paddingTop']);
-  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);1
+  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);
   switch (val) {
     case 'horizontal':
       setStyles({

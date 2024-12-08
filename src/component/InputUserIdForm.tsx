@@ -35,8 +35,7 @@ const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
   return (
     <>
       <ListItem
-        sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', columnGap: 2 }}
-      >
+        sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', columnGap: 2 }}>
         <FormLabel component="legend">{title}</FormLabel>
         <TextField label={t('discord_user_id')} variant="outlined" helperText={(
           <Box sx={{ textAlign: 'right', mx: -2 }}>
