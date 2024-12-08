@@ -1,66 +1,16 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Container from '@mui/material/Container';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import CssMaker from './component/CssMaker'
 import TutorialButton from './component/TutorialButton';
+import theme from './theme';
 import './App.css'
-import shadows from '@mui/material/styles/shadows';
-import grey from '@mui/material/colors/grey';
-import createTheme from '@mui/material/styles/createTheme';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-
-const DISCORD_BLUE = '#5865F2';
 
 const App = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: DISCORD_BLUE,
-      },
-      text: {
-        primary: grey[50],
-        secondary: grey[100],
-      }
-    },
-    components: {
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            color: grey[900],
-          },
-        },
-      },
-      MuiToggleButton: {
-        styleOverrides: {
-          root: {
-            color: grey[200],
-          }
-        }
-      },
-      MuiToggleButtonGroup: {
-        styleOverrides: {
-          root: {
-            color: grey[50],
-            '.Mui-selected.Mui-selected': {
-              backgroundColor: '#5865F2',
-              color: grey[50],
-              boxShadow: shadows[2],
-              borderRadius: '4px',
-            },
-            '.Mui-selected.Mui-selected:hover': {
-              backgroundColor: '#5865F2',
-              color: grey[50],
-              boxShadow: shadows[2],
-              borderRadius: '4px',
-            }
-          }
-        },
-      },
-    },
-  });
   return (
     <ThemeProvider theme={theme}>
       <div className='App-content'>

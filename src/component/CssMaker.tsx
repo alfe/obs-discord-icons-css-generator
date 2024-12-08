@@ -1,21 +1,21 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid'
 import List from '@mui/material/List'
-import { useTranslation } from "react-i18next";
 import cssObj, { setIconSpeakingStyle } from '../lib/cssObj'
 import { getCssText } from '../lib/cssText'
-import DiscordIconPreview, { CustomStyle } from './DiscordIconPreview'
-import SelectorListItem from './SelectorListItem'
-import InputArea from './InputArea'
-import SliderListItem from './SliderListItem'
-import CssString from './CssString';
-import Box from '@mui/material/Box';
-import CheckBoxListItem from './CheckBoxListItem';
-import Divider from '@mui/material/Divider';
-import InputUserIdForm from './InputUserIdForm';
-import SelectorToggleButtonGroup from './SelectorToggleButtonGroup';
-import ColorPickerListItem from './ColorPickerListItem';
 import { getCssKeyFrames } from '../lib/getCssKeyFrames';
+import CheckBoxListItem from './CheckBoxListItem';
+import ColorPickerListItem from './ColorPickerListItem';
+import CssString from './CssString';
+import DiscordIconPreview, { CustomStyle } from './DiscordIconPreview'
+import InputArea from './InputArea'
+import InputUserIdForm from './InputUserIdForm';
+import SelectorListItem from './SelectorListItem'
+import SelectorToggleButtonGroup from './SelectorToggleButtonGroup';
+import SliderListItem from './SliderListItem'
 
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -37,7 +37,6 @@ const CssMaker = () => {
   });
 
   const [alignment, setAlignment] = React.useState('vertical');
-  // const [activeMove, setActiveMove] = React.useState(false);
   const [activeNamePosition, setActiveNamePosition] = React.useState(true);
   const [speakingStyles, setSpeakingStyles] = React.useState(['border']);
   const [animationColor, setAnimationColor] = React.useState('#FFFFFF');
