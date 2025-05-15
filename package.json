@@ -51,6 +51,7 @@
     "@storybook/addon-links": "^8.6.12",
     "@storybook/react": "^8.6.12",
     "@storybook/testing-library": "^0.2.2",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
     "@types/react-copy-to-clipboard": "5.0.7",

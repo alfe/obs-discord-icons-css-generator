@@ -1,23 +1,25 @@
-import { Story } from "@storybook/react";
-import DiscordIconPreview, { DiscordIconPreviewProps } from '../DiscordIconPreview';
+import type { Meta, StoryObj } from "@storybook/react";
+import DiscordIconPreview from '../DiscordIconPreview';
+
+type Story = StoryObj<typeof DiscordIconPreview>;
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta: Meta<typeof DiscordIconPreview> = {
   title: 'component/DiscordIconPreview',
   component: DiscordIconPreview,
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<DiscordIconPreviewProps> = (args) => <DiscordIconPreview {...args} />;
+export default meta;
 
-export const Default = Template.bind({});
-Default.args = {
-  styles: {
-    voiceContainer: {},
-    voiceStates: {},
-    voiceState: {},
-    avatar: {},
-    avatarSpeaking: {},
-    name: {},
-  },
+export const Default: Story = {
+  args: {
+    styles: {
+      voiceContainer: {},
+      voiceStates: {},
+      voiceState: {},
+      avatar: {},
+      avatarSpeaking: {},
+      name: {},
+    },
+  }
 };

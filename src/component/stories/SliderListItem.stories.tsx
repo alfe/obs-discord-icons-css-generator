@@ -1,37 +1,42 @@
-import { Story } from "@storybook/react";
-import SliderListItem, { SliderListItemProps } from '../SliderListItem';
+import type { Meta, StoryObj } from "@storybook/react";
+import SliderListItem from '../SliderListItem';
+
+type Story = StoryObj<typeof SliderListItem>;
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta: Meta<typeof SliderListItem> = {
   title: 'component/SliderListItem',
   component: SliderListItem,
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<SliderListItemProps> = (args) => <SliderListItem {...args} />;
+export default meta;
 
-export const Default = Template.bind({});
-Default.args = {
-  title: 'title',
-  onChange: () => {},
+export const Default: Story = {
+  args: {
+    title: 'title',
+    onChange: () => {},
+  }
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  title: 'title',
-  onChange: () => {},
+export const Disabled: Story = {
+  args: {
+    title: 'title',
+    onChange: () => {},
+  }
 };
 
-export const withMax = Template.bind({});
-withMax.args = {
-  title: 'title',
-  max: 5,
-  onChange: () => {},
+export const withMax: Story = {
+  args: {
+    title: 'title',
+    max: 5,
+    onChange: () => {},
+  }
 };
 
-export const withMin = Template.bind({});
-withMin.args = {
-  title: 'title',
-  min: 5,
-  onChange: () => {},
+export const withMin: Story = {
+  args: {
+    title: 'title',
+    min: 5,
+    onChange: () => {},
+  }
 };

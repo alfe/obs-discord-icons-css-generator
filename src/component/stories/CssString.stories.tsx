@@ -1,15 +1,18 @@
-import { Story } from "@storybook/react";
-import CssString, { CssStringProps } from '../CssString';
+import type { Meta, StoryObj } from "@storybook/react";
+import CssString from '../CssString';
 
-export default {
+type Story = StoryObj<typeof CssString>;
+
+const meta: Meta<typeof CssString> = {
   title: 'component/CssString',
   component: CssString,
 };
-const Template: Story<CssStringProps> = (args) => <CssString {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  value: `#app-mount .voice-states {
+export default meta;
+
+export const Default: Story = {
+  args: {
+    value: `#app-mount .voice-states {
   display: flex;
 } 
 #app-mount .voice-state {
@@ -25,4 +28,5 @@ Default.args = {
   display: block; 
   text-align: center;
 }`
+  }
 };
