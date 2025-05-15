@@ -1,6 +1,5 @@
-import createTheme from '@mui/material/styles/createTheme';
-import shadows from '@mui/material/styles/shadows';
-import grey from '@mui/material/colors/grey';
+import { grey } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 
 const DISCORD_BLUE = '#5865F2';
 const theme = createTheme({
@@ -35,13 +34,13 @@ components: {
         '.Mui-selected.Mui-selected': {
             backgroundColor: '#5865F2',
             color: grey[50],
-            boxShadow: shadows[2],
+            boxShadow: 2,
             borderRadius: '4px',
         },
         '.Mui-selected.Mui-selected:hover': {
             backgroundColor: '#5865F2',
             color: grey[50],
-            boxShadow: shadows[2],
+            boxShadow: 2,
             borderRadius: '4px',
         }
         }

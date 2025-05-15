@@ -46,7 +46,7 @@ const CssMaker = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid item md={6} xs={12}>
+      <Grid size={6}>
         <InputArea>
           <List>
             <SelectorListItem
@@ -162,10 +162,10 @@ const CssMaker = () => {
           speakingStyles={speakingStyles}
           animationColor={animationColor} />
       </Grid>
-      <Grid item md={6} xs={12} sx={{ overflow: 'hidden' }}>
+      <Grid size={6} sx={{ overflow: 'hidden' }}>
         <DiscordIconPreview styles={styles} />
       </Grid>
-      <Grid item xs={12}>
+      <Grid size={12}>
         <CssString value={getCssText({ styles, speakingStyles, animationColor, hiddenUserId })} />
       </Grid>
     </Grid>
