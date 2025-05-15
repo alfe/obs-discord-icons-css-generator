@@ -118,7 +118,7 @@ const Footer = () => {
         </>
       </p>
       <p>
-        made by <a href='https://twitter.com/alfe_below' target='_blank' rel="noreferrer" >@alfe_below</a>
+        made by <a href='https://x.com/alfe_below' target='_blank' rel="noreferrer" >@alfe_below</a>
         / <a href='https://github.com/alfe/obs-discord-icons-css-generator' target='_blank' rel="noreferrer" >GitHub</a>
         {!(i18n.language === 'cs' || i18n.language === 'ct') ? '' : (<>
           &emsp; 中文翻译 <a href='https://twitter.com/kiyomi425alice' target='_blank' rel="noreferrer" >@kiyomi425alice</a>
