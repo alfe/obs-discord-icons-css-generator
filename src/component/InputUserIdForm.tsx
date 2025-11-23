@@ -14,7 +14,6 @@ import Typography from '@mui/material/Typography';
 import idCopy from './img/id_copy.jpg';
 import discordSettingDetail from './img/discord-setting-detail.jpg';
 import discordUserSetting from './img/discord-user-setting.jpg';
-import { t } from 'i18next';
 
 export type InputUserIdFormProps = {
   title: string;
@@ -38,7 +37,7 @@ const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
         sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', columnGap: 2 }}>
         <FormLabel component="legend">{title}</FormLabel>
         <TextField label={t('discord_user_id')} variant="outlined" helperText={(
-          <Box sx={{ textAlign: 'right', mx: -2 }}>
+          <Box component="span" sx={{ display: 'inline-block', textAlign: 'right', mx: -2 }}>
             <Button onClick={() => { setOpen(true) }} sx={{ margin: '0 0 0 auto', fontSize: '.9em', alignItems: 'flex-end' }}>
               <HelpOutlineIcon fontSize="small" />{t('what_discord_user_id')}
             </Button>

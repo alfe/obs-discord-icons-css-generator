@@ -16,6 +16,8 @@ import InputUserIdForm from './InputUserIdForm';
 import SelectorListItem from './SelectorListItem'
 import SelectorToggleButtonGroup from './SelectorToggleButtonGroup';
 import SliderListItem from './SliderListItem'
+import Typography from '@mui/material/Typography';
+import TutorialButton from './TutorialButton';
 
 const CssMaker = () => {
   const [styles, setStyles] = React.useState<CustomStyle>({
@@ -47,6 +49,7 @@ const CssMaker = () => {
   return (
     <Grid container spacing={2}>
       <Grid size={6}>
+        <SectionTitle index={1} title={t("appearance_settings")} />
         <InputArea>
           <List>
             <SelectorListItem
@@ -163,10 +166,21 @@ const CssMaker = () => {
           animationColor={animationColor} />
       </Grid>
       <Grid size={6} sx={{ overflow: 'hidden' }}>
+        <SectionTitle index={2} title={t("check_preview")} />
         <DiscordIconPreview styles={styles} />
       </Grid>
       <Grid size={12}>
+        <SectionTitle index={3} title={t("copy_css")} />
         <CssString value={getCssText({ styles, speakingStyles, animationColor, hiddenUserId })} />
+      </Grid>
+      <Grid size={12}>
+        <SectionTitle index={4} title={t("paste_obs")} />
+        <InputArea>
+          <Typography variant="body1" component="p" sx={{ my: 2 }}>
+            {t("paste_obs_description")}
+          </Typography>
+          <TutorialButton />
+        </InputArea>
       </Grid>
     </Grid>
   );
@@ -183,3 +197,20 @@ const AnimationStyle = ((props: AnimationStyleProps) => {
     <><style>{getCssKeyFrames(props.speakingStyles, props.animationColor)}</style></>
   );
 });
+
+const SectionTitle = ({ index, title }: { index: number, title: string }) => {
+  return (
+    <Typography variant="h6" component="h2" sx={{
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
+      padding: '.25rem 1rem',
+      mb: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+      borderRadius: '4px',
+      border: '1px solid rgba(0, 0, 0, 0.2)',
+      boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
+      }}>
+      {index}. {title}
+    </Typography>
+  );
+};

@@ -19,6 +19,10 @@ const en = {
     how_to_use: "How to use",
   },
   css_maker: {
+    appearance_settings: "Appearance settings",
+    check_preview: "Check preview",
+    copy_css: "Copy CSS",
+    paste_obs: "Paste OBS",
     icon_alignment: "Icon alignment",
     icon_row_gap: "Icon row gap",
     icon_column_gap: "Icon column gap",
@@ -48,6 +52,7 @@ const en = {
     top_and_bottom: "Position (top and bottom)",
     left_right: "Position (left and right)",
     hide_particular_user: "Hide particular user",
+    paste_obs_description: "To apply custom CSS to OBS, please refer to the following instructions.",
   },
   preview: {
     user_click_to_switch: 'User (click to switch)',

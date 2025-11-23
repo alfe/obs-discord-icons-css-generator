@@ -19,6 +19,10 @@ const en = {
     how_to_use: "如何使用",
   },
   css_maker: {
+    appearance_settings: "外觀設定",
+    check_preview: "檢查預覽",
+    copy_css: "複製CSS",
+    paste_obs: "貼上OBS",
     icon_alignment: "頭像的方向",
     icon_row_gap: "頭像間距 (上下)",
     icon_column_gap: "頭像間距 (左右)",
@@ -48,6 +52,7 @@ const en = {
     top_and_bottom: "名稱位置 (上下)",
     left_right: "名稱位置 (左右)",
     hide_particular_user: "隱藏特定用戶",
+    paste_obs_description: "要應用自定義CSS到OBS，請按照以下操作。",
   },
   preview: {
     user_click_to_switch: '用戶 (點擊切換)',

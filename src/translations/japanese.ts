@@ -19,6 +19,10 @@ const ja = {
     how_to_use: "使い方",
   },
   css_maker: {
+    appearance_settings: "見た目の設定",
+    check_preview: "プレビューを確認",
+    copy_css: "CSSをコピー",
+    paste_obs: "OBSに貼り付け",
     icon_alignment: "アイコンの並び",
     icon_row_gap: "アイコンの間隔（上下）",
     icon_column_gap: "アイコンの間隔（左右）",
@@ -48,6 +52,7 @@ const ja = {
     top_and_bottom: "名前の位置(上下)",
     left_right: "名前の位置(左右)",
     hide_particular_user: "特定のユーザを隠す",
+    paste_obs_description: "OBSにカスタムCSSを適用するには、以下を参考にしてください。",
   },
   preview: {
     user_click_to_switch: 'ユーザ（クリックで切替え）',
