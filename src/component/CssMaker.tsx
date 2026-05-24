@@ -42,6 +42,8 @@ const CssMaker = () => {
   const [activeNamePosition, setActiveNamePosition] = React.useState(true);
   const [speakingStyles, setSpeakingStyles] = React.useState(['border']);
   const [animationColor, setAnimationColor] = React.useState('#FFFFFF');
+  const [nameStyleType, setNameStyleType] = React.useState('roundedBk');
+  const [nameBackgroundColor, setNameBackgroundColor] = React.useState('#1e2124');
   const [hiddenUserId, setHiddenUserId] = React.useState('');
   const { t } = useTranslation("translation", { keyPrefix: "css_maker" });
   console.log(styles)
@@ -138,13 +140,28 @@ const CssMaker = () => {
               <Box sx={{ ml: 2 }}>
                 <SelectorListItem
                   title={t("look_of_the_name")}
-                  onChange={(val) => cssObj.nameStyle({val, styles, setStyles})}
+                  onChange={(val) => {
+                    setNameStyleType(val);
+                    cssObj.nameStyle({val, nameBackgroundColor, styles, setStyles});
+                  }}
                   disabled={!activeNamePosition}
                   options={[
-                    { value: 'blackBk', label: t('black_base') },
+                    { value: 'roundedBk', label: t('rounded_background') },
+                    { value: 'pillBk', label: t('pill_background') },
                     { value: 'bordering', label: t('border') },
                     { value: 'none', label: t('text_only') },
                   ]} />
+                {(nameStyleType === 'roundedBk' || nameStyleType === 'pillBk' || nameStyleType === 'bordering') && (
+                  <Box sx={{ ml: 2 }}>
+                    <ColorPickerListItem
+                      title={t("name_background_color")}
+                      defaultValue={nameBackgroundColor}
+                      onChange={(value) => {
+                        setNameBackgroundColor(`${value}`);
+                        cssObj.nameStyle({val: nameStyleType, nameBackgroundColor: `${value}`, styles, setStyles});
+                      }} />
+                  </Box>
+                )}
                 <SliderListItem
                   title={t("top_and_bottom")}
                   disabled={!activeNamePosition}

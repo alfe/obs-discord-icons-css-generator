@@ -41,3 +41,4 @@ cypress/support/customCommands.d.ts
 /blob-report/
 /playwright/.cache/
 .playwright-mcp/*
+.claude/settings.local.json

@@ -297,19 +297,21 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
 };
 
 // 名前の見た目
-const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
-  const name = omit(styles.name, ['backgroundColor', 'textShadow']);
+const nameStyle = ({ val, nameBackgroundColor, styles, setStyles }: StringValArg & { nameBackgroundColor?: string }) => {
+  const name = omit(styles.name, ['backgroundColor', 'textShadow', 'borderRadius', 'padding']);
   switch (val) {
-    case 'bordering':
+    case 'bordering': {
+      const textBorderColor = nameBackgroundColor || 'black';
       setStyles({
         ...styles,
         name: {
           ...name,
           backgroundColor: 'transparent',
-          textShadow: '2px 2px 2px black, -2px -2px 2px black, 2px -2px 2px black, -2px 2px 2px black',
+          textShadow: `2px 2px 2px ${textBorderColor}, -2px -2px 2px ${textBorderColor}, 2px -2px 2px ${textBorderColor}, -2px 2px 2px ${textBorderColor}`,
         },
       });
       break;
+    }
     case 'none':
       setStyles({
         ...styles,
@@ -319,10 +321,24 @@ const nameStyle = ({ val, styles, setStyles }: StringValArg) => {
         },
       });
       break;
+    case 'pillBk':
+      setStyles({
+        ...styles,
+        name: {
+          ...name,
+          backgroundColor: nameBackgroundColor || 'rgba(30, 33, 36, 0.95)',
+          borderRadius: '9999px',
+        },
+      });
+      break;
     default:
       setStyles({
         ...styles,
-        name,
+        name: {
+          ...name,
+          backgroundColor: nameBackgroundColor || 'rgba(30, 33, 36, 0.95)',
+          borderRadius: '4px',
+        },
       });
       break;
   }
