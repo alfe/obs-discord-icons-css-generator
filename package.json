@@ -32,38 +32,35 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "7.3.5",
-    "@mui/material": "7.3.5",
-    "i18next": "^25.6.3",
-    "i18next-browser-languagedetector": "^8.2.0",
-    "lodash.omit": "^4.5.0",
-    "mui-color-input": "^7.0.0",
-    "react": "^19.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^19.2.0",
-    "react-i18next": "^16.3.5"
+    "@mui/icons-material": "^9.5.0",
+    "@mui/material": "9.5.0",
+    "i18next": "^26.7.1",
+    "i18next-browser-languagedetector": "^8.3.0",
+    "lodash.omit": "^4.18.0",
+    "mui-color-input": "^9.0.0",
+    "react": "^19.3.1",
+    "react-copy-to-clipboard": "^5.1.1",
+    "react-dom": "^19.3.1",
+    "react-i18next": "^17.1.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
+    "@babel/core": "^8.1.0",
     "@storybook/addon-actions": "^9.0.8",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^10.0.8",
-    "@storybook/react": "^10.0.8",
+    "@storybook/addon-links": "^10.6.5",
+    "@storybook/react": "^10.6.5",
     "@storybook/testing-library": "^0.2.2",
-    "@types/lodash": "^4.17.21",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.6",
+    "@types/lodash": "^4.17.27",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
     "@types/react-copy-to-clipboard": "5.0.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-loader": "^10.0.0",
-    "chromatic": "^13.3.4",
-    "typescript": "^5.9.3",
-    "vite": "^7.2.4"
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "babel-loader": "^10.1.1",
+    "chromatic": "^18.13.9",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
   },
-  "resolutions": {
-    "@types/react": "^18.2.20"
-  },
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.18.1"
 }

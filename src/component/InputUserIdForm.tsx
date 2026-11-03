@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import FormLabel from '@mui/material/FormLabel';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpIcon from '@mui/icons-material/Help';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import idCopy from './img/id_copy.jpg';
@@ -39,10 +39,10 @@ const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
         <TextField label={t('discord_user_id')} variant="outlined" helperText={(
           <Box component="span" sx={{ display: 'inline-block', textAlign: 'right', mx: -2 }}>
             <Button onClick={() => { setOpen(true) }} sx={{ margin: '0 0 0 auto', fontSize: '.9em', alignItems: 'flex-end' }}>
-              <HelpOutlineIcon fontSize="small" />{t('what_discord_user_id')}
+              <HelpIcon fontSize="small" />{t('what_discord_user_id')}
             </Button>
           </Box>
-        )} onChange={handleUserIdChange} InputLabelProps={{ shrink: true }} placeholder="739000000000000000" />
+        )} onChange={handleUserIdChange} slotProps={{ inputLabel: { shrink: true } }} placeholder="739000000000000000" />
       </ListItem>
 
       <Dialog open={open} onClose={() => { setOpen(false) }}>
@@ -71,7 +71,7 @@ const AboutDiscordUserIdDialogContent = () => {
       <Box sx={{ textAlign: 'right' }}>
         <Button onClick={() => { setOpen(true) }}>
           <>
-            <HelpOutlineIcon />
+            <HelpIcon />
             {t('disabled_id_copy')}
           </>
         </Button>

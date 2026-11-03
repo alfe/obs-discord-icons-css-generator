@@ -44,7 +44,7 @@ const TutorialButton = () => {
         <DialogContent>
           {i18n.language!=="ja" && (
             <Box sx={{ textAlign: 'center', padding: 6, mt: 4, border: '2px solid coral' }}>
-              <Typography variant="h5" paragraph sx={{ m: 0 }}>
+              <Typography variant="h5" sx={{ m: 0 }}>
                 please see English introduction by <Link href="https://gigazine.net/gsc_news/en/20220517-obs-discord-icon-generator/" target='_blank'>
                   GIGAZINE
                 </Link>

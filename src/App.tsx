@@ -72,18 +72,20 @@ const Header = () => {
             繁体字
           </Button>
         </Box>
-        <Typography align="center" component="h1" variant="h3" paragraph>
+        <Typography align="center" component="h1" variant="h3">
           <>{t("title")}</>
         </Typography>
         <Container>
-          <Typography align="center" paragraph>
+          <Typography align="center">
             <>{t("title_anno")}</>
           </Typography>
-          <Typography align="center" paragraph variant="caption">
-            <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a>&emsp;/&emsp; 
-            <a href="https://obs-discord-text.alfebelow.com/">{t('text_link')}</a>
-            <br /><>{t('news')}</>
-          </Typography>
+          <Box sx={{textAlign: 'center' }}>
+            <Typography variant="caption">
+              <a href="https://obs-discord-picture.alfebelow.com/">{t('icon_link')}</a>&emsp;/&emsp; 
+              <a href="https://obs-discord-text.alfebelow.com/">{t('text_link')}</a>
+              <br /><>{t('news')}</>
+            </Typography>
+          </Box>
           <TutorialButton />
         </Container>
       </Box>
