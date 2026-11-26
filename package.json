@@ -26,7 +26,6 @@
     "preview": "vp preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=75fb6554e7e1 --auto-accept-changes",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -53,7 +52,6 @@
     "@types/react-copy-to-clipboard": "5.0.7",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.2.1",
-    "chromatic": "^18.13.9",
     "storybook": "^10.6.9",
     "vite": "catalog:",
     "vite-plus": "catalog:"

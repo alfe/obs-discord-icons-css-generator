@@ -18,4 +18,6 @@ https://obs-discord-icon.alfebelow.com/
 
 ## Storybook
 
-https://www.chromatic.com/library?appId=622f09369f85e7003adefe61
+```shell
+> yarn storybook
+```
