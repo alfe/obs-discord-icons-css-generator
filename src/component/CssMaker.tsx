@@ -10,7 +10,8 @@ import { getCssKeyFrames } from '../lib/getCssKeyFrames';
 import CheckBoxListItem from './CheckBoxListItem';
 import ColorPickerListItem from './ColorPickerListItem';
 import CssString from './CssString';
-import DiscordIconPreview, { CustomStyle } from './DiscordIconPreview';
+import DiscordIconPreview from './DiscordIconPreview';
+import type { CustomStyle } from './DiscordIconPreview';
 import InputArea from './InputArea';
 import InputUserIdForm from './InputUserIdForm';
 import SelectorListItem from './SelectorListItem';
@@ -130,7 +131,7 @@ const CssMaker = () => {
                   title={t('color')}
                   defaultValue={animationColor}
                   onChange={(value) => {
-                    setAnimationColor(`${value}`);
+                    setAnimationColor(value);
                     setIconSpeakingStyle({
                       val: speakingStyles,
                       animationColor,
@@ -174,10 +175,10 @@ const CssMaker = () => {
                       title={t('name_background_color')}
                       defaultValue={nameBackgroundColor}
                       onChange={(value) => {
-                        setNameBackgroundColor(`${value}`);
+                        setNameBackgroundColor(value);
                         cssObj.nameStyle({
                           val: nameStyleType,
-                          nameBackgroundColor: `${value}`,
+                          nameBackgroundColor: value,
                           styles,
                           setStyles,
                         });

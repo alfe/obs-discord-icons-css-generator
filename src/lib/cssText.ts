@@ -1,4 +1,4 @@
-import { CustomStyle } from '../component/DiscordIconPreview';
+import type { CustomStyle } from '../component/DiscordIconPreview';
 import { getCssKeyFrames } from './getCssKeyFrames';
 
 const toKebabCase = (string: string) =>

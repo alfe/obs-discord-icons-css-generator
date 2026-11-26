@@ -19,12 +19,12 @@ const ColorPickerListItem = ({
   const [value, setValue] = React.useState<string>(defaultValue || '#ffffff');
 
   React.useEffect(() => {
-    onChange(`${value}`);
+    onChange(value);
   }, [disabled]);
 
   const handleChange = (newValue: string) => {
     setValue(newValue);
-    onChange(`${newValue}`);
+    onChange(newValue);
   };
 
   return (
