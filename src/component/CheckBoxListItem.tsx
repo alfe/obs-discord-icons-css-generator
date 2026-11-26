@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
@@ -19,10 +19,7 @@ const CheckBoxListItem = ({ title, onChange }: CheckBoxListItemProps) => {
     <ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <FormLabel component="legend">{title}</FormLabel>
       <Box>
-        <Checkbox
-          defaultChecked
-          value={value}
-          onChange={handleChange} />
+        <Checkbox defaultChecked value={value} onChange={handleChange} />
       </Box>
     </ListItem>
   );

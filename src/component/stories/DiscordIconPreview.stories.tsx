@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 import DiscordIconPreview from '../DiscordIconPreview';
 
 type Story = StoryObj<typeof DiscordIconPreview>;
@@ -21,5 +21,5 @@ export const Default: Story = {
       avatarSpeaking: {},
       name: {},
     },
-  }
+  },
 };

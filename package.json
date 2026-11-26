@@ -3,31 +3,30 @@
   "version": "1.1.5",
   "description": "Generator to create custom CSS for displaying members of Discord call in OBS Studio, such as jumping, side-by-side or square icons.",
   "keywords": [
-    "obs",
-    "discord",
-    "icons",
     "css",
-    "generator"
+    "discord",
+    "generator",
+    "icons",
+    "obs"
   ],
+  "homepage": "https://obs-discord-icon.alfebelow.com/",
+  "license": "MIT",
   "author": {
     "name": "alfe",
     "email": "alfe10251@gmail.com",
     "url": "https://alfebelow.com/"
   },
-  "license": "MIT",
-  "homepage": "https://obs-discord-icon.alfebelow.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/alfe/obs-discord-icons-css-generator"
   },
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=75fb6554e7e1 --auto-accept-changes"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -44,23 +43,21 @@
     "react-i18next": "^17.1.11"
   },
   "devDependencies": {
-    "@babel/core": "^8.1.0",
-    "@storybook/addon-actions": "^9.0.8",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-docs": "^10.6.9",
     "@storybook/addon-links": "^10.6.5",
-    "@storybook/react": "^10.6.5",
-    "@storybook/testing-library": "^0.2.2",
-    "@types/lodash": "^4.17.27",
+    "@storybook/react-vite": "^10.6.9",
+    "@types/lodash.omit": "^4.5.9",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-copy-to-clipboard": "5.0.7",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.2.1",
-    "babel-loader": "^10.1.1",
-    "chromatic": "^18.13.9",
-    "typescript": "^7.0.2",
-    "vite": "^8.3.5"
+    "storybook": "^10.6.9",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "resolutions": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8001"
   },
   "packageManager": "yarn@4.18.1"
 }

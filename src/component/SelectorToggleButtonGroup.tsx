@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import ToggleButton from '@mui/material/ToggleButton';
@@ -10,7 +10,11 @@ export type SelectorToggleButtonGroupProps = {
   options: Option[];
   onChange: (value: string[]) => void;
 };
-const SelectorToggleButtonGroup = ({ title, options, onChange }: SelectorToggleButtonGroupProps) => {
+const SelectorToggleButtonGroup = ({
+  title,
+  options,
+  onChange,
+}: SelectorToggleButtonGroupProps) => {
   const [value, setValue] = React.useState<string[]>([options[0].value || '']);
   const handleChange = (_: any, val: string[]) => {
     if (!val) return;
@@ -20,12 +24,11 @@ const SelectorToggleButtonGroup = ({ title, options, onChange }: SelectorToggleB
   return (
     <ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
       <FormLabel component="legend">{title}</FormLabel>
-      <ToggleButtonGroup
-        color="primary"
-        value={value}
-        onChange={handleChange}>
+      <ToggleButtonGroup color="primary" value={value} onChange={handleChange}>
         {(options || []).map((item: Option) => (
-          <ToggleButton key={`${title}-${item.label}-${item.value}`} value={item.value}>{item.label}</ToggleButton>
+          <ToggleButton key={`${title}-${item.label}-${item.value}`} value={item.value}>
+            {item.label}
+          </ToggleButton>
         ))}
       </ToggleButtonGroup>
     </ListItem>

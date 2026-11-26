@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -22,30 +22,55 @@ export type InputUserIdFormProps = {
 const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
   const [userId, setUserId] = React.useState('');
   const [open, setOpen] = React.useState(false);
-  const { t } = useTranslation("translation", { keyPrefix: "discord_user_id" });
+  const { t } = useTranslation('translation', { keyPrefix: 'discord_user_id' });
 
   React.useEffect(() => {
     onChange(userId);
-  }, [userId])
+  }, [userId]);
 
-  // @ts-ignore
-  const handleUserIdChange = (event: React.ChangeEvent) => { setUserId(event?.target?.value || ''); };
+  const handleUserIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserId(event.target.value || '');
+  };
 
   return (
     <>
       <ListItem
-        sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', columnGap: 2 }}>
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
+          columnGap: 2,
+        }}
+      >
         <FormLabel component="legend">{title}</FormLabel>
-        <TextField label={t('discord_user_id')} variant="outlined" helperText={(
-          <Box component="span" sx={{ display: 'inline-block', textAlign: 'right', mx: -2 }}>
-            <Button onClick={() => { setOpen(true) }} sx={{ margin: '0 0 0 auto', fontSize: '.9em', alignItems: 'flex-end' }}>
-              <HelpIcon fontSize="small" />{t('what_discord_user_id')}
-            </Button>
-          </Box>
-        )} onChange={handleUserIdChange} slotProps={{ inputLabel: { shrink: true } }} placeholder="739000000000000000" />
+        <TextField
+          label={t('discord_user_id')}
+          variant="outlined"
+          helperText={
+            <Box component="span" sx={{ display: 'inline-block', textAlign: 'right', mx: -2 }}>
+              <Button
+                onClick={() => {
+                  setOpen(true);
+                }}
+                sx={{ margin: '0 0 0 auto', fontSize: '.9em', alignItems: 'flex-end' }}
+              >
+                <HelpIcon fontSize="small" />
+                {t('what_discord_user_id')}
+              </Button>
+            </Box>
+          }
+          onChange={handleUserIdChange}
+          slotProps={{ inputLabel: { shrink: true } }}
+          placeholder="739000000000000000"
+        />
       </ListItem>
 
-      <Dialog open={open} onClose={() => { setOpen(false) }}>
+      <Dialog
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
         <DialogTitle>{t('what_discord_user_id')}</DialogTitle>
         <DialogContent>
           <AboutDiscordUserIdDialogContent />
@@ -61,7 +86,7 @@ export default InputUserIdForm;
 
 const AboutDiscordUserIdDialogContent = () => {
   const [open, setOpen] = React.useState(false);
-  const { t } = useTranslation("translation", { keyPrefix: "discord_user_id" });
+  const { t } = useTranslation('translation', { keyPrefix: 'discord_user_id' });
   return (
     <>
       {t('explain_discord_user_id')}
@@ -69,7 +94,11 @@ const AboutDiscordUserIdDialogContent = () => {
         <img src={idCopy} alt="メンバーを右クリックしてIDをコピー" />
       </Box>
       <Box sx={{ textAlign: 'right' }}>
-        <Button onClick={() => { setOpen(true) }}>
+        <Button
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
           <>
             <HelpIcon />
             {t('disabled_id_copy')}
@@ -77,8 +106,16 @@ const AboutDiscordUserIdDialogContent = () => {
         </Button>
       </Box>
 
-      <Dialog maxWidth="lg" open={open} onClose={() => { setOpen(false) }}>
-        <DialogTitle><>{t('how_to_enable_copy')}</></DialogTitle>
+      <Dialog
+        maxWidth="lg"
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <DialogTitle>
+          <>{t('how_to_enable_copy')}</>
+        </DialogTitle>
         <DialogContent>
           <Typography sx={{ mb: 2 }}>
             <>{t('on_developer_mode')}</>
@@ -104,13 +141,15 @@ const AboutDiscordUserIdDialogContent = () => {
       </Dialog>
     </>
   );
-}
+};
 
 type MouthAnimationStyleProps = {
   userId: string;
   mouthImgUrl: string;
 };
-const MouthAnimationStyle = React.memo((props: MouthAnimationStyleProps) => {
+// 現在は未使用だが、口のアニメーション用として残している
+const _MouthAnimationStyle = React.memo(
+  (props: MouthAnimationStyleProps) => {
     if (!props.userId || !props.mouthImgUrl) return null;
     return (
       <style>
@@ -125,4 +164,6 @@ const MouthAnimationStyle = React.memo((props: MouthAnimationStyleProps) => {
         }`}
       </style>
     );
-  }, (p, n) => p.userId === n.userId && p.mouthImgUrl === n.mouthImgUrl);
+  },
+  (p, n) => p.userId === n.userId && p.mouthImgUrl === n.mouthImgUrl,
+);

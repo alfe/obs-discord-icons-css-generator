@@ -1,6 +1,6 @@
 ## Summary
 
-Please include changes, motivations and which issues are fixed. 
+Please include changes, motivations and which issues are fixed.
 
 # How did you test this change?
 

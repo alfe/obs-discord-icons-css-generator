@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 import CssString from '../CssString';
 
 type Story = StoryObj<typeof CssString>;
@@ -27,6 +27,6 @@ export const Default: Story = {
   overflow: hidden; 
   display: block; 
   text-align: center;
-}`
-  }
+}`,
+  },
 };

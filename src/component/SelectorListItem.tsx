@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import ToggleButton from '@mui/material/ToggleButton';
@@ -16,7 +16,7 @@ const SelectorListItem = ({ title, options, disabled, onChange }: SelectorListIt
 
   React.useEffect(() => {
     onChange(value);
-  }, [disabled])
+  }, [disabled]);
 
   const handleChange = (_: any, val: string) => {
     if (!val) return;
@@ -25,16 +25,24 @@ const SelectorListItem = ({ title, options, disabled, onChange }: SelectorListIt
   };
   return (
     <ListItem
-      sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}>
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        ...(disabled && { backgroundColor: '#DDD' }),
+      }}
+    >
       <FormLabel component="legend">{title}</FormLabel>
       <ToggleButtonGroup
         color="primary"
         value={value}
         disabled={disabled}
         exclusive
-        onChange={handleChange}>
+        onChange={handleChange}
+      >
         {(options || []).map((item: Option) => (
-          <ToggleButton key={`${title}-${item.label}-${item.value}`} value={item.value}>{item.label}</ToggleButton>
+          <ToggleButton key={`${title}-${item.label}-${item.value}`} value={item.value}>
+            {item.label}
+          </ToggleButton>
         ))}
       </ToggleButtonGroup>
     </ListItem>

@@ -1,4 +1,4 @@
-import Paper from '@mui/material/Paper'
+import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 
 const InputArea = styled(Paper)(({ theme }) => ({

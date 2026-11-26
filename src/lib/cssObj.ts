@@ -1,5 +1,5 @@
-import omit from "lodash/omit";
-import { CustomStyle } from "../component/DiscordIconPreview";
+import omit from 'lodash.omit';
+import type { CustomStyle } from '../component/DiscordIconPreview';
 
 type StringValArg = {
   val: string;
@@ -11,14 +11,27 @@ const getIsTall = (avatar: CustomStyle['avatar']) => {
   const height = Number(avatar?.height?.replace('px', '') || 50);
   const width = Number(avatar?.width?.replace('px', '') || 50);
   return height !== width;
-}
+};
 
 // アイコンの並び
 const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
-  const voiceStates = omit(styles.voiceStates, ['display', 'flexDirection', 'rowGap', 'columnGap', 'margin']);
+  const voiceStates = omit(styles.voiceStates, [
+    'display',
+    'flexDirection',
+    'rowGap',
+    'columnGap',
+    'margin',
+  ]);
   const voiceState = omit(styles.voiceState, ['display', 'flexDirection']);
   const user = omit(styles.user, ['paddingTop']);
-  const name = omit(styles.name, ['boxSizing', 'textOverflow', 'whiteSpace', 'overflow', 'display', 'textAlign']);
+  const name = omit(styles.name, [
+    'boxSizing',
+    'textOverflow',
+    'whiteSpace',
+    'overflow',
+    'display',
+    'textAlign',
+  ]);
   switch (val) {
     case 'horizontal':
       setStyles({
@@ -50,7 +63,7 @@ const iconAlign = ({ val, styles, setStyles }: StringValArg) => {
           display: 'block',
           textAlign: 'center',
           zIndex: '2',
-        }
+        },
       });
       break;
     default:
@@ -80,7 +93,7 @@ const iconRowGap = ({ val, styles, setStyles }: StringValArg) => {
     case '0':
       setStyles({
         ...styles,
-        voiceStates
+        voiceStates,
       });
       break;
     default:
@@ -126,26 +139,33 @@ const iconShape = ({ val, styles, setStyles }: StringValArg) => {
     ...styles,
     avatar: {
       ...avatar,
-      ...((val === 'circle') ? {} : {
-        borderRadius: (val === 'rect-r') ? '8px' : '0px',
-      }),
-      ...((val === 'tall' && !wasTall)
-        ? {
-          objectFit: 'cover',
-          height: `${height * 2}px`,
-        }
+      ...(val === 'circle'
+        ? {}
         : {
-          height: `${wasTall ? height / 2 : height}px`,
-        }
-      ),
-    }
-  })
+            borderRadius: val === 'rect-r' ? '8px' : '0px',
+          }),
+      ...(val === 'tall' && !wasTall
+        ? {
+            objectFit: 'cover',
+            height: `${height * 2}px`,
+          }
+        : {
+            height: `${wasTall ? height / 2 : height}px`,
+          }),
+    },
+  });
 };
 
 // 話すときの動き
 const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
   const avatar = omit(styles.avatar, ['filter']);
-  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'animationDuration', 'filter', 'borderColor']);
+  const avatarSpeaking = omit(styles.avatarSpeaking, [
+    'position',
+    'animation',
+    'animationDuration',
+    'filter',
+    'borderColor',
+  ]);
   switch (val) {
     case 'light':
       setStyles({
@@ -160,7 +180,7 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
           animation: '300ms infinite alternate ease-in-out speak-light',
           filter: 'brightness(100%)',
           borderColor: 'rgba(255,255,255,.75)', // !important
-        }
+        },
       });
       break;
     case 'jump':
@@ -176,7 +196,7 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
           animation: '300ms infinite alternate ease-in-out speak-jump',
           filter: 'brightness(100%)',
           borderColor: 'transparent', // !important
-        }
+        },
       });
       break;
     default:
@@ -187,30 +207,42 @@ const iconSpeaking = ({ val, styles, setStyles }: StringValArg) => {
       });
       break;
   }
-}
+};
 
 type StyleInsetType = {
   styles: CustomStyle;
   setStyles: React.Dispatch<React.SetStateAction<CustomStyle>>;
-}
+};
 // 話すときの動き
 export const setIconSpeakingStyle = ({
-  val, animationColor, styles, setStyles,
-}: StyleInsetType & { val: string[]; animationColor: string; }) => {
+  val,
+  animationColor,
+  styles,
+  setStyles,
+}: StyleInsetType & { val: string[]; animationColor: string }) => {
   const avatar = omit(styles.avatar, ['filter', 'marginRight']);
-  const avatarSpeaking = omit(styles.avatarSpeaking, ['position', 'animation', 'filter', 'borderColor', 'zIndex']);
+  const avatarSpeaking = omit(styles.avatarSpeaking, [
+    'position',
+    'animation',
+    'filter',
+    'borderColor',
+    'zIndex',
+  ]);
 
-  const newAnimation = val.map((animationType: string) => {
-    switch (animationType) {
-      case 'border':
-        return '';
-      case 'light':
-        return '750ms infinite alternate ease-in-out speak-light';
-      case 'jump':
-        return '750ms infinite alternate ease-in-out speak-jump';
-      default: return '';
-    }
-  }).filter((v) => !!v);
+  const newAnimation = val
+    .map((animationType: string) => {
+      switch (animationType) {
+        case 'border':
+          return '';
+        case 'light':
+          return '750ms infinite alternate ease-in-out speak-light';
+        case 'jump':
+          return '750ms infinite alternate ease-in-out speak-jump';
+        default:
+          return '';
+      }
+    })
+    .filter((v) => !!v);
 
   setStyles({
     ...styles,
@@ -223,12 +255,14 @@ export const setIconSpeakingStyle = ({
       ...avatarSpeaking,
       position: 'relative',
       filter: 'brightness(100%)',
-      ...(!val.includes('border') ? { borderColor: 'transparent' } : { borderColor: animationColor }),
-      ...(newAnimation.length === 0 ? '' : { animation: newAnimation.join(',')}),
+      ...(!val.includes('border')
+        ? { borderColor: 'transparent' }
+        : { borderColor: animationColor }),
+      ...(newAnimation.length === 0 ? '' : { animation: newAnimation.join(',') }),
       zIndex: '1',
-    }
+    },
   });
-}
+};
 
 // 動きの速さ
 const iconSpeakingDuration = ({ val, styles, setStyles }: StringValArg) => {
@@ -253,14 +287,14 @@ const iconSize = ({ val, styles, setStyles }: StringValArg) => {
     avatar: {
       ...avatar,
       width: `${size}px`,
-      height: `${size * (!!isTall ? 2 : 1)}px`,
+      height: `${size * (isTall ? 2 : 1)}px`,
       marginBottom: '8px',
     },
     name: {
       ...styles.name,
       maxWidth: `${size + 6}px`, // アイコンサイズ+6px
     },
-  })
+  });
   switch (val) {
     case 'lg':
       setStyles(getStyle(80));
@@ -297,7 +331,12 @@ const nameVisibility = ({ val, styles, setStyles }: StringValArg) => {
 };
 
 // 名前の見た目
-const nameStyle = ({ val, nameBackgroundColor, styles, setStyles }: StringValArg & { nameBackgroundColor?: string }) => {
+const nameStyle = ({
+  val,
+  nameBackgroundColor,
+  styles,
+  setStyles,
+}: StringValArg & { nameBackgroundColor?: string }) => {
   const name = omit(styles.name, ['backgroundColor', 'textShadow', 'borderRadius', 'padding']);
   switch (val) {
     case 'bordering': {

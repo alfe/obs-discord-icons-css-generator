@@ -1,5 +1,5 @@
-import { fn } from '@storybook/test';
-import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from 'storybook/test';
+import type { Meta, StoryObj } from '@storybook/react';
 import SelectorListItem from '../SelectorListItem';
 
 type Story = StoryObj<typeof SelectorListItem>;
@@ -23,5 +23,5 @@ export const Default: Story = {
       { label: 'label5', value: 'value5' },
     ],
     onChange: fn(),
-  }
+  },
 };

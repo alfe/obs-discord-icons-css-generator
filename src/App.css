@@ -1,14 +1,19 @@
-
 .App-content {
   --main-bg-color: #282c34;
-  --main-color: #5865F2;
+  --main-color: #5865f2;
   --main-link-color: #979eeb;
 
   background-color: var(--main-bg-color);
   background:
-    linear-gradient(63deg, rgba(0,0,0,.1) 23%, transparent 23%) 7px 0,
-    linear-gradient(63deg, transparent 74%, rgba(0,0,0,.1) 78%),
-    linear-gradient(63deg, transparent 34%, rgba(0,0,0,.1) 38%, rgba(0,0,0,.1) 58%, transparent 62%),
+    linear-gradient(63deg, rgba(0, 0, 0, 0.1) 23%, transparent 23%) 7px 0,
+    linear-gradient(63deg, transparent 74%, rgba(0, 0, 0, 0.1) 78%),
+    linear-gradient(
+      63deg,
+      transparent 34%,
+      rgba(0, 0, 0, 0.1) 38%,
+      rgba(0, 0, 0, 0.1) 58%,
+      transparent 62%
+    ),
     var(--main-bg-color);
   background-size: 16px 48px;
   min-height: 100vh;
@@ -26,8 +31,8 @@
 }
 
 .App-footer p {
-  font-size: .9rem;
-  margin: .5rem;
+  font-size: 0.9rem;
+  margin: 0.5rem;
 }
 
 .App-footer {
