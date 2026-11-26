@@ -1,9 +1,14 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-import { ChineseCsTranslate, ChineseCtTranslate, EnglishTranslate, JapaneseTranslate } from "../translations";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import {
+  ChineseCsTranslate,
+  ChineseCtTranslate,
+  EnglishTranslate,
+  JapaneseTranslate,
+} from '../translations';
 
-i18n
+void i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -12,10 +17,8 @@ i18n
       ja: { translation: JapaneseTranslate },
       cs: { translation: ChineseCsTranslate },
       ct: { translation: ChineseCtTranslate },
-      
-      
     },
-    fallbackLng: "en",
+    fallbackLng: 'en',
     debug: true,
     interpolation: { escapeValue: false },
   });

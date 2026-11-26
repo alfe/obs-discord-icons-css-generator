@@ -1,6 +1,6 @@
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import InputArea from './InputArea'
+import InputArea from './InputArea';
 import ClipboardButton from './ClipboardButton';
 
 export type CssStringProps = {
@@ -17,7 +17,8 @@ const CssString = (props: CssStringProps) => {
             <ClipboardButton value={props.value} />
           </InputAdornment>
         }
-        value={props.value} />
+        value={props.value}
+      />
     </InputArea>
   );
 };

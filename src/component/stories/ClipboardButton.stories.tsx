@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 import ClipboardButton from '../ClipboardButton';
 
 type Story = StoryObj<typeof ClipboardButton>;
@@ -12,6 +12,6 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    value: `copied text`
-  }
+    value: `copied text`,
+  },
 };

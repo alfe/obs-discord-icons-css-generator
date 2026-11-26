@@ -3,31 +3,34 @@
   "version": "1.1.5",
   "description": "Generator to create custom CSS for displaying members of Discord call in OBS Studio, such as jumping, side-by-side or square icons.",
   "keywords": [
-    "obs",
-    "discord",
-    "icons",
     "css",
-    "generator"
+    "discord",
+    "generator",
+    "icons",
+    "obs"
   ],
+  "homepage": "https://obs-discord-icon.alfebelow.com/",
+  "license": "MIT",
   "author": {
     "name": "alfe",
     "email": "alfe10251@gmail.com",
     "url": "https://alfebelow.com/"
   },
-  "license": "MIT",
-  "homepage": "https://obs-discord-icon.alfebelow.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/alfe/obs-discord-icons-css-generator"
   },
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "dev": "vp dev",
+    "start": "vp dev",
+    "build": "tsc && vp build",
+    "preview": "vp preview",
+    "check": "vp check",
+    "test": "vp test --run",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=75fb6554e7e1 --auto-accept-changes"
+    "chromatic": "npx chromatic --project-token=75fb6554e7e1 --auto-accept-changes",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -60,7 +63,11 @@
     "babel-loader": "^10.1.1",
     "chromatic": "^18.13.9",
     "typescript": "^7.0.2",
-    "vite": "^8.3.5"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "resolutions": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8001"
   },
   "packageManager": "yarn@4.18.1"
 }

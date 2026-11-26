@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 import SliderListItem from '../SliderListItem';
 
 type Story = StoryObj<typeof SliderListItem>;
@@ -15,14 +15,14 @@ export const Default: Story = {
   args: {
     title: 'title',
     onChange: () => {},
-  }
+  },
 };
 
 export const Disabled: Story = {
   args: {
     title: 'title',
     onChange: () => {},
-  }
+  },
 };
 
 export const withMax: Story = {
@@ -30,7 +30,7 @@ export const withMax: Story = {
     title: 'title',
     max: 5,
     onChange: () => {},
-  }
+  },
 };
 
 export const withMin: Story = {
@@ -38,5 +38,5 @@ export const withMin: Story = {
     title: 'title',
     min: 5,
     onChange: () => {},
-  }
+  },
 };

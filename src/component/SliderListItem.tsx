@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
@@ -16,16 +16,21 @@ const SliderListItem = ({ title, disabled, onChange, min, max }: SliderListItemP
 
   React.useEffect(() => {
     onChange(`${value}`);
-  }, [disabled])
+  }, [disabled]);
 
-  const handleChange = (_: any, val: number | number[], activeThumb: number) => {
+  const handleChange = (_: any, val: number | number[], _activeThumb: number) => {
     if (typeof val !== 'number') return;
     setValue(val);
     onChange(`${val}`);
   };
   return (
     <ListItem
-      sx={{ display: 'flex', justifyContent: 'space-between', ...(disabled && { backgroundColor: '#DDD' }) }}>
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        ...(disabled && { backgroundColor: '#DDD' }),
+      }}
+    >
       <FormLabel component="legend">{title}</FormLabel>
       <Box sx={{ width: 250 }}>
         <Slider
@@ -35,7 +40,8 @@ const SliderListItem = ({ title, disabled, onChange, min, max }: SliderListItemP
           min={typeof min === 'number' ? min : -150}
           max={typeof max === 'number' ? max : 150}
           valueLabelDisplay="auto"
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </Box>
     </ListItem>
   );

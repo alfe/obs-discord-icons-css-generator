@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
@@ -12,7 +12,7 @@ export type ClipboardButtonProps = {
 const ClipboardButton = (props: ClipboardButtonProps) => {
   const [openTip, setOpenTip] = React.useState<boolean>(false);
 
-  const handleMouseDownPassword = (event: { preventDefault: () => void; }) => {
+  const handleMouseDownPassword = (event: { preventDefault: () => void }) => {
     event.preventDefault();
   };
 
@@ -24,29 +24,26 @@ const ClipboardButton = (props: ClipboardButtonProps) => {
   };
 
   return (
-    <Tooltip
-      arrow
-      open={openTip}
-      disableHoverListener
-      placement='top'
-      title='Copied!'>
+    <Tooltip arrow open={openTip} disableHoverListener placement="top" title="Copied!">
       <div>
         <CopyToClipboard text={props.value} onCopy={handleClickButton}>
           <IconButton
             sx={{
               color: grey[50],
               background: 'linear-gradient(145deg, #24282f, #2b2f38)',
-              boxShadow: '20px 20px 40px #20232a,-20px -20px 40px #30353e, 0 0 0 2px inset var(--main-color)',
+              boxShadow:
+                '20px 20px 40px #20232a,-20px -20px 40px #30353e, 0 0 0 2px inset var(--main-color)',
             }}
             size="large"
             disabled={props.value === ''}
             aria-label="copy to clipboard"
-            onMouseDown={handleMouseDownPassword}>
+            onMouseDown={handleMouseDownPassword}
+          >
             {openTip ? <AssignmentTurnedInIcon /> : <AssignmentIcon />}
           </IconButton>
         </CopyToClipboard>
       </div>
     </Tooltip>
   );
-}
+};
 export default ClipboardButton;

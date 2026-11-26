@@ -1,19 +1,19 @@
 .voice-container {
-  font-family: "Catamaran";
+  font-family: 'Catamaran';
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
-  color: #fff
+  color: #fff;
 }
 
 .voice-container .voice-states {
   list-style-type: none;
-  padding-left: 15px
+  padding-left: 15px;
 }
 
 .voice-container .voice-states .voice-state {
   height: 50px;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .voice-container .voice-states .voice-state .avatar {
@@ -22,66 +22,65 @@
   border: 3px solid transparent;
   border-radius: 50%;
   float: left;
-  margin-right: 8px
+  margin-right: 8px;
 }
 
 .voice-container .voice-states .voice-state .avatar.speaking {
-  border-color: #FFFFFF
+  border-color: #ffffff;
 }
 
 .voice-container .voice-states .voice-state .user {
-  padding-top: 18px
+  padding-top: 18px;
 }
 
 .voice-container .voice-states .voice-state .user .name {
   background-color: #1e2124;
   border-radius: 3px;
-  padding: 4px 6px
+  padding: 4px 6px;
 }
 
 .voice-container .voice-states .voice-state.small-avatar {
-  height: 40px
+  height: 40px;
 }
 
 .voice-container .voice-states .voice-state.small-avatar .avatar {
   height: 40px;
-  width: 40px
+  width: 40px;
 }
 
 .voice-container .voice-states .voice-state.small-avatar .user {
-  padding-top: 12px
+  padding-top: 12px;
 }
-
 
 .status-container {
   height: 64px;
   width: 312px;
   font-size: 14px;
   background-color: #1e2124;
-  border-radius: 3px
+  border-radius: 3px;
 }
 
 .status-container .status {
-  font-family: "Catamaran";
+  font-family: 'Catamaran';
   background-size: 32px 30px;
   background-repeat: no-repeat;
   background-position: 267px 17px;
-  padding: 14px 20px
+  padding: 14px 20px;
 }
 
 .status-container .status .server-icon {
   float: left;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
 .status-container .status .server-icon img {
   height: 35px;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .status-container .status .server-info {
   line-height: 16px;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .status-container .status .server-info .name {
@@ -89,21 +88,21 @@
   max-width: 160px;
   display: inline-block;
   margin-bottom: -3px;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .status-container .status .server-info .online-count {
-  opacity: .3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  opacity: 0.3;
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=30)';
   filter: alpha(opacity=30);
   text-transform: uppercase;
   font-size: 12px;
   line-height: 15px;
-  padding-left: 4px
+  padding-left: 4px;
 }
 
 .status-container .status .invite-link {
   font-size: 16px;
   line-height: 19px;
-  font-weight: 600
+  font-weight: 600;
 }
