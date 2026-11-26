@@ -1,4 +1,4 @@
-import omit from 'lodash/omit';
+import omit from 'lodash.omit';
 import type { CustomStyle } from '../component/DiscordIconPreview';
 
 type StringValArg = {

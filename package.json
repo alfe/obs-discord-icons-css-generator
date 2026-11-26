@@ -24,8 +24,8 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -46,7 +46,7 @@
     "@storybook/addon-docs": "^10.6.9",
     "@storybook/addon-links": "^10.6.5",
     "@storybook/react-vite": "^10.6.9",
-    "@types/lodash": "^4.17.27",
+    "@types/lodash.omit": "^4.5.9",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@types/react-copy-to-clipboard": "5.0.7",

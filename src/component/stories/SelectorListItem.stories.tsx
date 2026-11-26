@@ -1,4 +1,4 @@
-import { fn } from '@storybook/test';
+import { fn } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 import SelectorListItem from '../SelectorListItem';
 
