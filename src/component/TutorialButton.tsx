@@ -65,12 +65,12 @@ const TutorialButton = () => {
             OBSのシーンを選択後、「ソース」欄で右クリックしてブラウザを追加
           </p>
           <Box sx={{ textAlign: 'center' }}>
-            <img src={Add_browser} />
+            <img src={Add_browser} alt="「ソース」欄で右クリックして「ブラウザを追加」を選択する" />
           </Box>
           <h2>2. Discord を起動</h2>
           <p>起動していない場合は起動してください</p>
           <Box sx={{ textAlign: 'center' }}>
-            <img src={discordStartIcon} />
+            <img src={discordStartIcon} alt="Discordを起動する" />
           </Box>
           <h2>3. Discord StreamKit Overlay にアクセス</h2>
           <Link href="https://streamkit.discord.com/overlay" target="_blank">
@@ -88,6 +88,7 @@ const TutorialButton = () => {
                   margin: '1rem 0',
                 }}
                 src={DiscordStreamKitOverlay}
+                alt="Discord StreamKit Overlay のページ"
               />
             </Box>
           </Link>
@@ -99,24 +100,28 @@ const TutorialButton = () => {
             ※画面が見切れている場合はCtrlを押しながらスクロールして縮小して確認します
           </p>
           <Box sx={{ textAlign: 'center' }}>
-            <img width="80%" src={discordUrl} />
+            <img
+              width="80%"
+              src={discordUrl}
+              alt="Voice Widget の右下に表示されるURLをコピーする"
+            />
           </Box>
           <h2>5. OBSにURLを入力</h2>
           <p>OBSに戻り、中央にあるURLの入力欄に 3. でコピーしたURLを貼り付け</p>
           <Box sx={{ textAlign: 'center' }}>
-            <img width="80%" src={obs_empty} />
+            <img width="80%" src={obs_empty} alt="OBSのブラウザソースにURLを入力する" />
           </Box>
           <h2>6. カスタムCSSを作成</h2>
           <p>アイコン外観変更ジェネレーターで好みの見た目を決めたあと、下に表示されるCSSをコピー</p>
           <Box sx={{ textAlign: 'center' }}>
-            <img width="80%" src={copyCss} />
+            <img width="80%" src={copyCss} alt="ジェネレーターで作成したカスタムCSSをコピーする" />
           </Box>
           <h2>7. OBSにカスタムCSSを入力</h2>
           <p>
             OBSに戻り、URLの少し下にあるカスタムCSSの入力欄に 5. でコピーしたカスタムCSSを貼り付け
           </p>
           <Box sx={{ textAlign: 'center' }}>
-            <img width="80%" src={obsCss} />
+            <img width="80%" src={obsCss} alt="OBSのカスタムCSS入力欄にCSSを貼り付ける" />
           </Box>
           <h2>8. 作成完了</h2>
           <p>
@@ -125,7 +130,11 @@ const TutorialButton = () => {
             OBSに話している人が表示されます
           </p>
           <Box sx={{ textAlign: 'center' }}>
-            <img width="80%" src={obsComplete} />
+            <img
+              width="80%"
+              src={obsComplete}
+              alt="設定完了後、OBSに話している人が表示される様子"
+            />
           </Box>
         </DialogContent>
       </Dialog>

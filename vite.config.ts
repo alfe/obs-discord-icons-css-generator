@@ -19,13 +19,11 @@ export default defineConfig({
     rules: {
       'vite-plus/prefer-vite-plus-imports': 'error',
       'typescript/no-unnecessary-template-expression': 'error',
-      // TODO: 画像にaltをつけたら有効化する（alt-textが9件ある）
-      'jsx-a11y/alt-text': 'off',
+      'jsx-a11y/alt-text': 'error',
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-noninteractive-element-interactions': 'off',
-      // TODO: useEffectの依存配列を見直してから有効化する
-      'react/exhaustive-effect-dependencies': 'off',
-      'react-hooks/exhaustive-deps': 'off',
+      'react/exhaustive-effect-dependencies': 'error',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
   plugins: lazyPlugins(() => [react()]),

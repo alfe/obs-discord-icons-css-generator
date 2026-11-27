@@ -49,7 +49,7 @@ const Header = () => {
       default:
         break;
     }
-  }, []);
+  }, [i18n]);
 
   return (
     <header>

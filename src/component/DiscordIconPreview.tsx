@@ -116,6 +116,7 @@ const User = ({ userId, userName, backgroundColor, speaking, src, onClick, style
     >
       <img
         className={`avatar ${speaking ? 'speaking' : ''}`}
+        alt=""
         src={src || DiscordIcon}
         style={{
           ...styles.avatar,

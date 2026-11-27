@@ -3,6 +3,7 @@ import { MuiColorInput } from 'mui-color-input';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
+import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
 export type ColorPickerListItemProps = {
   title: string;
@@ -18,9 +19,7 @@ const ColorPickerListItem = ({
 }: ColorPickerListItemProps) => {
   const [value, setValue] = React.useState<string>(defaultValue || '#ffffff');
 
-  React.useEffect(() => {
-    onChange(value);
-  }, [disabled]);
+  useReportOnceOnMount(() => onChange(value));
 
   const handleChange = (newValue: string) => {
     setValue(newValue);

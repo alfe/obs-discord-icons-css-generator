@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import Slider from '@mui/material/Slider';
+import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
 export type SliderListItemProps = {
   title: string;
@@ -14,9 +15,7 @@ export type SliderListItemProps = {
 const SliderListItem = ({ title, disabled, onChange, min, max }: SliderListItemProps) => {
   const [value, setValue] = React.useState(0);
 
-  React.useEffect(() => {
-    onChange(`${value}`);
-  }, [disabled]);
+  useReportOnceOnMount(() => onChange(`${value}`));
 
   const handleChange = (_: any, val: number | number[], _activeThumb: number) => {
     if (typeof val !== 'number') return;

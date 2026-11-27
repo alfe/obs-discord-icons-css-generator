@@ -3,6 +3,7 @@ import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
 type Option = { label: string; value: string };
 export type SelectorListItemProps = {
@@ -14,9 +15,7 @@ export type SelectorListItemProps = {
 const SelectorListItem = ({ title, options, disabled, onChange }: SelectorListItemProps) => {
   const [value, setValue] = React.useState(options[0].value || '');
 
-  React.useEffect(() => {
-    onChange(value);
-  }, [disabled]);
+  useReportOnceOnMount(() => onChange(value));
 
   const handleChange = (_: any, val: string) => {
     if (!val) return;

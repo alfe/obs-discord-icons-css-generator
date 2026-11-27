@@ -20,16 +20,11 @@ export type InputUserIdFormProps = {
   onChange: (userId: string) => void;
 };
 const InputUserIdForm = ({ title, onChange }: InputUserIdFormProps) => {
-  const [userId, setUserId] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const { t } = useTranslation('translation', { keyPrefix: 'discord_user_id' });
 
-  React.useEffect(() => {
-    onChange(userId);
-  }, [userId]);
-
   const handleUserIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserId(event.target.value || '');
+    onChange(event.target.value || '');
   };
 
   return (
