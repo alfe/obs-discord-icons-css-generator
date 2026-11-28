@@ -6,7 +6,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import { grey } from '@mui/material/colors';
 
-export type ClipboardButtonProps = {
+type ClipboardButtonProps = {
   value: string;
 };
 const ClipboardButton = (props: ClipboardButtonProps) => {

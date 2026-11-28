@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputArea from './InputArea';
 import ClipboardButton from './ClipboardButton';
 
-export type CssStringProps = {
+type CssStringProps = {
   value: string;
 };
 const CssString = (props: CssStringProps) => {

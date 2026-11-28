@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import Slider from '@mui/material/Slider';
 import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
-export type SliderListItemProps = {
+type SliderListItemProps = {
   title: string;
   disabled?: boolean;
   onChange: (value: string) => void;

@@ -5,7 +5,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 type Option = { label: string; value: string };
-export type SelectorToggleButtonGroupProps = {
+type SelectorToggleButtonGroupProps = {
   title: string;
   options: Option[];
   onChange: (value: string[]) => void;

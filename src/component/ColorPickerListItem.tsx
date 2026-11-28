@@ -5,7 +5,7 @@ import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
-export type ColorPickerListItemProps = {
+type ColorPickerListItemProps = {
   title: string;
   disabled?: boolean;
   onChange: (value: string) => void;

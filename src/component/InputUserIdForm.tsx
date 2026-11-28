@@ -15,7 +15,7 @@ import idCopy from './img/id_copy.jpg';
 import discordSettingDetail from './img/discord-setting-detail.jpg';
 import discordUserSetting from './img/discord-user-setting.jpg';
 
-export type InputUserIdFormProps = {
+type InputUserIdFormProps = {
   title: string;
   onChange: (userId: string) => void;
 };

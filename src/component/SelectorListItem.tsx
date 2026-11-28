@@ -6,7 +6,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useReportOnceOnMount } from '../lib/useReportOnceOnMount';
 
 type Option = { label: string; value: string };
-export type SelectorListItemProps = {
+type SelectorListItemProps = {
   title: string;
   options: Option[];
   disabled?: boolean;

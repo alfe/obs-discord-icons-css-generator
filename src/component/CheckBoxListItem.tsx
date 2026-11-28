@@ -4,7 +4,7 @@ import FormLabel from '@mui/material/FormLabel';
 import ListItem from '@mui/material/ListItem';
 import Checkbox from '@mui/material/Checkbox';
 
-export type CheckBoxListItemProps = {
+type CheckBoxListItemProps = {
   title: string;
   onChange: (value: boolean) => void;
 };
